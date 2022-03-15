@@ -1,0 +1,3083 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>IoT overview - CEH-IN-BULLET-POINTS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Barlow";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iot-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CEH-IN-BULLET-POINTS" class="md-header__button md-logo" aria-label="CEH-IN-BULLET-POINTS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CEH-IN-BULLET-POINTS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IoT overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CEH-IN-BULLET-POINTS" class="md-nav__button md-logo" aria-label="CEH-IN-BULLET-POINTS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    CEH-IN-BULLET-POINTS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Information security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Information security" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Information security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/information-security-overview/" class="md-nav__link">
+        Information security overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/security-threats-and-attacks/" class="md-nav__link">
+        Security threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_3" type="checkbox" id="__nav_1_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_3">
+          Information security controls
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Information security controls" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Information security controls
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/information-security-controls/" class="md-nav__link">
+        Information security controls overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/risk-management/" class="md-nav__link">
+        Risk management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/incident-management/" class="md-nav__link">
+        Incident management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/network-security/" class="md-nav__link">
+        Network security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/security-policies/" class="md-nav__link">
+        Security policies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/physical-security/" class="md-nav__link">
+        Physical security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/data-leakage-backup-and-recovery/" class="md-nav__link">
+        Data leakage backup and recovery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/identity-access-management-%28iam%29/" class="md-nav__link">
+        Identity access management (IAM)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/threat-intelligence-and-forensics/" class="md-nav__link">
+        Threat intelligence and forensics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/laws-standards-and-regulations/" class="md-nav__link">
+        Laws, standards and regulations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Hacking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hacking" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Hacking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/hacker-types/" class="md-nav__link">
+        Hacker types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/hacking-stages/" class="md-nav__link">
+        Hacking stages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Penetration testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Penetration testing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Penetration testing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/penetration-testing/" class="md-nav__link">
+        Penetration testing overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/penetration-testing-phases/" class="md-nav__link">
+        Penetration testing phases
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Footprinting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Footprinting" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Footprinting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/footprinting-overview/" class="md-nav__link">
+        Footprinting overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/search-engines-and-online-resources/" class="md-nav__link">
+        Search engines and online resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/whois-geoiplocation-and-dns-interrogation/" class="md-nav__link">
+        WHOIS, GeoIpLocation and DNS interrogation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/email-footprinting/" class="md-nav__link">
+        Email footprinting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/website-footprinting/" class="md-nav__link">
+        Website footprinting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/network-footprinting/" class="md-nav__link">
+        Network footprinting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Scanning networks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Scanning networks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Scanning networks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-networks-overview/" class="md-nav__link">
+        Scanning networks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/tcpip-basics/" class="md-nav__link">
+        TCP/IP basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-tools/" class="md-nav__link">
+        Scanning tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-techniques/" class="md-nav__link">
+        Scanning techniques
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/bypassing-ids-and-firewall/" class="md-nav__link">
+        Bypassing IDS and firewall
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/banner-grabbing/" class="md-nav__link">
+        Banner grabbing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Enumeration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Enumeration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Enumeration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-enumeration/enumeration-overview/" class="md-nav__link">
+        Enumeration Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-enumeration/dns-enumeration/" class="md-nav__link">
+        DNS enumeration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Vulnerabilities
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vulnerabilities" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Vulnerabilities
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/vulnerability-analysis/" class="md-nav__link">
+        Vulnerability analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/common-vulnerabilities/" class="md-nav__link">
+        Common vulnerabilities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/automated-penetration-testing-tools/" class="md-nav__link">
+        Automated penetration testing tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          System hacking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="System hacking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          System hacking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Cracking passwords
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cracking passwords" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cracking passwords
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/cracking-passwords-overview/" class="md-nav__link">
+        Cracking passwords overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/microsoft-authentication/" class="md-nav__link">
+        Microsoft authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/password-cracking-tools/" class="md-nav__link">
+        Password cracking tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/linux-basics/" class="md-nav__link">
+        Linux basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/escalating-privileges/" class="md-nav__link">
+        Escalating privileges
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/executing-applications/" class="md-nav__link">
+        Executing applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/hiding-files/" class="md-nav__link">
+        Hiding files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/covering-tracks/" class="md-nav__link">
+        Covering tracks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Malware overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Malware overview" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Malware overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/malware-overview/" class="md-nav__link">
+        Malware overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/trojans/" class="md-nav__link">
+        Trojans
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/viruses/" class="md-nav__link">
+        Viruses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/malware-analysis/" class="md-nav__link">
+        Malware analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Sniffing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sniffing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Sniffing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/sniffing-overview/" class="md-nav__link">
+        Sniffing overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/sniffing-tools/" class="md-nav__link">
+        Sniffing tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Sniffing attacks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sniffing attacks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Sniffing attacks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/sniffing-attacks-overview/" class="md-nav__link">
+        Sniffing attacks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/spoofing-attacks/" class="md-nav__link">
+        Spoofing attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/arp-poisoning/" class="md-nav__link">
+        ARP poisoning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Wireless networks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wireless networks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Wireless networks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-networks-overview/" class="md-nav__link">
+        Wireless networks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/aaa-protocols/" class="md-nav__link">
+        AAA protocols
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-threats-and-attacks/" class="md-nav__link">
+        Wireless threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-security-tools/" class="md-nav__link">
+        Wireless security tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/bluetooth/" class="md-nav__link">
+        Bluetooth
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Social engineering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Social engineering" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Social engineering
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-social-engineering/social-engineering-overview/" class="md-nav__link">
+        Social engineering overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-social-engineering/social-engineering-types/" class="md-nav__link">
+        Social engineering types
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Firewalls IDS and Honeypots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Firewalls IDS and Honeypots" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Firewalls IDS and Honeypots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" type="checkbox" id="__nav_11_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_1">
+          Intrusion detection system (IDS)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Intrusion detection system (IDS)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          Intrusion detection system (IDS)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/intrusion-detection-system-%28ids%29-overview/" class="md-nav__link">
+        Intrusion detection system (IDS) overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/evading-ids/" class="md-nav__link">
+        Evading IDS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" type="checkbox" id="__nav_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_2">
+          Firewall
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Firewall" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Firewall
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/firewall-overview/" class="md-nav__link">
+        Firewall overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/evading-firewalls/" class="md-nav__link">
+        Evading firewalls
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/honeypot/" class="md-nav__link">
+        Honeypot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Web servers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web servers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Web servers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-web-servers/hacking-web-servers/" class="md-nav__link">
+        Hacking web servers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-web-servers/web-server-threats-and-attacks/" class="md-nav__link">
+        Web server threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          Web applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web applications" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          Web applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/hacking-web-applications/" class="md-nav__link">
+        Hacking web applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/owasp-top-10-threats/" class="md-nav__link">
+        OWASP top 10 threats
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/denial-of-service/" class="md-nav__link">
+        Denial of service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/session-hijacking/" class="md-nav__link">
+        Session hijacking
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          SQL injection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SQL injection" data-md-level="1">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          SQL injection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-sql-injection/sql-injection-overview/" class="md-nav__link">
+        SQL injection overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-sql-injection/sql-injection-types/" class="md-nav__link">
+        SQL injection types
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          Cryptography
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cryptography" data-md-level="1">
+        <label class="md-nav__title" for="__nav_15">
+          <span class="md-nav__icon md-icon"></span>
+          Cryptography
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/cryptography-overview/" class="md-nav__link">
+        Cryptography overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encryption-algorithms/" class="md-nav__link">
+        Encryption algorithms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/hashing-algorithms/" class="md-nav__link">
+        Hashing algorithms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_4" type="checkbox" id="__nav_15_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15_4">
+          Communication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Communication" data-md-level="2">
+        <label class="md-nav__title" for="__nav_15_4">
+          <span class="md-nav__icon md-icon"></span>
+          Communication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encrypting-communication/" class="md-nav__link">
+        Encrypting communication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/tunneling-protocols/" class="md-nav__link">
+        Tunneling protocols
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encrypting-disk/" class="md-nav__link">
+        Encrypting disk
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/cryptanalysis/" class="md-nav__link">
+        Cryptanalysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16">
+          Cloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud" data-md-level="1">
+        <label class="md-nav__title" for="__nav_16">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/cloud-computing/" class="md-nav__link">
+        Cloud computing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/cloud-security/" class="md-nav__link">
+        Cloud security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/container-security/" class="md-nav__link">
+        Container security
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" type="checkbox" id="__nav_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_17">
+          Mobile platforms
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobile platforms" data-md-level="1">
+        <label class="md-nav__title" for="__nav_17">
+          <span class="md-nav__icon md-icon"></span>
+          Mobile platforms
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-hacking/" class="md-nav__link">
+        Mobile hacking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-attack-vectors/" class="md-nav__link">
+        Mobile attack vectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-attacks/" class="md-nav__link">
+        Mobile attacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18" type="checkbox" id="__nav_18" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_18">
+          IoT and OT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IoT and OT" data-md-level="1">
+        <label class="md-nav__title" for="__nav_18">
+          <span class="md-nav__icon md-icon"></span>
+          IoT and OT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          IoT overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        IoT overview
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#iot-basics" class="md-nav__link">
+    IoT basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-level-components" class="md-nav__link">
+    Top-level components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iot-communication-models" class="md-nav__link">
+    IoT communication models
+  </a>
+  
+    <nav class="md-nav" aria-label="IoT communication models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#device-to-device-d2d" class="md-nav__link">
+    Device-To-Device (D2D)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-to-cloud-d2c" class="md-nav__link">
+    Device-To-Cloud (D2C)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-to-gateway-dtg" class="md-nav__link">
+    Device-To-Gateway (DTG)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#back-end-data-sharing" class="md-nav__link">
+    Back-end data-sharing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layered-architecture" class="md-nav__link">
+    Layered architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="Layered architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#five-layers-of-iot-architecture" class="md-nav__link">
+    Five-layers of IoT architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="Five-layers of IoT architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edge-technology-layer" class="md-nav__link">
+    Edge technology layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-gateway-layer" class="md-nav__link">
+    Access gateway layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internet-layer" class="md-nav__link">
+    Internet layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#middleware-layer" class="md-nav__link">
+    Middleware layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-layer" class="md-nav__link">
+    Application layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-iot-layers" class="md-nav__link">
+    Other IoT layers
+  </a>
+  
+    <nav class="md-nav" aria-label="Other IoT layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#business-layer" class="md-nav__link">
+    Business layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iot-connectivity" class="md-nav__link">
+    IoT connectivity
+  </a>
+  
+    <nav class="md-nav" aria-label="IoT connectivity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wireless-iot-connectivity" class="md-nav__link">
+    Wireless IoT connectivity
+  </a>
+  
+    <nav class="md-nav" aria-label="Wireless IoT connectivity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#short-range-wireless-communication" class="md-nav__link">
+    Short-range wireless communication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medium-range-wireless-communication" class="md-nav__link">
+    Medium-Range Wireless Communication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-range-wireless-communication" class="md-nav__link">
+    Long Range Wireless Communication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wired-iot-connectivity" class="md-nav__link">
+    Wired IoT connectivity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iot-security/" class="md-nav__link">
+        IoT security
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19-exam-readiness/exam-readiness/" class="md-nav__link">
+        Exam readiness
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#iot-basics" class="md-nav__link">
+    IoT basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-level-components" class="md-nav__link">
+    Top-level components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iot-communication-models" class="md-nav__link">
+    IoT communication models
+  </a>
+  
+    <nav class="md-nav" aria-label="IoT communication models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#device-to-device-d2d" class="md-nav__link">
+    Device-To-Device (D2D)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-to-cloud-d2c" class="md-nav__link">
+    Device-To-Cloud (D2C)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-to-gateway-dtg" class="md-nav__link">
+    Device-To-Gateway (DTG)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#back-end-data-sharing" class="md-nav__link">
+    Back-end data-sharing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layered-architecture" class="md-nav__link">
+    Layered architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="Layered architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#five-layers-of-iot-architecture" class="md-nav__link">
+    Five-layers of IoT architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="Five-layers of IoT architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edge-technology-layer" class="md-nav__link">
+    Edge technology layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-gateway-layer" class="md-nav__link">
+    Access gateway layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internet-layer" class="md-nav__link">
+    Internet layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#middleware-layer" class="md-nav__link">
+    Middleware layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-layer" class="md-nav__link">
+    Application layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-iot-layers" class="md-nav__link">
+    Other IoT layers
+  </a>
+  
+    <nav class="md-nav" aria-label="Other IoT layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#business-layer" class="md-nav__link">
+    Business layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iot-connectivity" class="md-nav__link">
+    IoT connectivity
+  </a>
+  
+    <nav class="md-nav" aria-label="IoT connectivity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wireless-iot-connectivity" class="md-nav__link">
+    Wireless IoT connectivity
+  </a>
+  
+    <nav class="md-nav" aria-label="Wireless IoT connectivity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#short-range-wireless-communication" class="md-nav__link">
+    Short-range wireless communication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medium-range-wireless-communication" class="md-nav__link">
+    Medium-Range Wireless Communication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-range-wireless-communication" class="md-nav__link">
+    Long Range Wireless Communication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wired-iot-connectivity" class="md-nav__link">
+    Wired IoT connectivity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="iot-overview">IoT overview</h1>
+<h2 id="iot-basics">IoT basics</h2>
+<ul>
+<li>Internet of things</li>
+<li>Extends Internet connectivity beyond standard devices to everyday objects</li>
+<li>Usually uses IPv6 due to the limited number of IPv4 addresses</li>
+<li>Operating systems: Linux or Windows (10) IoT</li>
+</ul>
+<h2 id="top-level-components">Top-level components</h2>
+<ul>
+<li><strong>Device</strong></li>
+<li>Includes hardware and software that directly interact with the world.</li>
+<li>They connect to a network to communicate with each other, or to centralized applications</li>
+<li><strong>Gateway</strong></li>
+<li>Enables services to reach cloud services.</li>
+<li>Infrastructure component providing security and protocol translations</li>
+<li>Also used as a service that process data on behalf of group or cluster devices.</li>
+<li>Often a device e.g. smart home hub.</li>
+<li>Usually from the same vendor</li>
+<li><strong>Cloud</strong></li>
+<li>See <a href="../../16-cloud-computing/cloud-computing/">cloud computing</a></li>
+<li><strong>Sensors</strong></li>
+<li>Detects, measures or indicates any specific physical quantity</li>
+<li>E.g. light, heat, motion, moisture, pressure, or similar entities</li>
+<li>Converts them into any other form which is mostly, electrical pulses.</li>
+</ul>
+<h2 id="iot-communication-models">IoT communication models</h2>
+<h3 id="device-to-device-d2d">Device-To-Device (D2D)</h3>
+<ul>
+<li>Direct communication between devices</li>
+<li>Uses a medium such as Bluetooth Low Energy etc.</li>
+<li>Common in home automation systems e.g. light bulbs or wearables e.g. smart watch and heart monitor.</li>
+<li>Simpler security</li>
+<li>E.g. <strong>Vehicle-to-vehicle (V2V)</strong></li>
+<li>Uses Vehicle Ad Hoc Network (VANET)<ul>
+<li>Based on MANET i.e. decentralized wireless network (without routers)</li>
+</ul>
+</li>
+</ul>
+<h3 id="device-to-cloud-d2c">Device-To-Cloud (D2C)</h3>
+<ul>
+<li>IoT device directly communicating with the cloud server</li>
+<li>Often uses ethernet or WiFi</li>
+<li>Lets the user (and an application) to obtain remote access to a device</li>
+<li>E.g. smart card for dogs, remote monitoring</li>
+<li>Two credentials:</li>
+<li>the network access credentials (such as the mobile device's SIM card)</li>
+<li>credentials for cloud access</li>
+<li>E.g. <a href="https://store.google.com/us/product/nest_learning_thermostat_3rd_gen">Nest Learning Thermostat</a></li>
+</ul>
+<h3 id="device-to-gateway-dtg">Device-To-Gateway (DTG)</h3>
+<ul>
+<li>IoT devices basically connect to an intermediary device to access a cloud service</li>
+<li>Often includes an application software operating on a local gateway device (like a smartphone or a "hub")</li>
+<li>Gateway provides security, protocol translation and usually does aggregation</li>
+<li>E.g. <a href="https://www.smartthings.com/">Samsung SmartThing</a> ecosystem</li>
+</ul>
+<h3 id="back-end-data-sharing">Back-end data-sharing</h3>
+<ul>
+<li>Extends device-to-cloud model</li>
+<li>Access are granted to the uploaded data to third-parties</li>
+<li>E.g. <a href="https://www.mapmyfitness.com/app">Map My Fitness</a> that compiles data from other applications</li>
+</ul>
+<h2 id="layered-architecture">Layered architecture</h2>
+<ul>
+<li>IoT architecture can be categorized into different layers.</li>
+<li>There's no consistency regarding naming of layer.</li>
+<li>Different methodologies are used but the concepts they represent are very similar.</li>
+<li>📝 It usually consists of 5 layers:</li>
+<li><a href="#edge-technology-layer">Edge technology layer</a> the "IoT objects collecting data"</li>
+<li><a href="#access-gateway-layer">Access gateway layer</a> the "data transporter"</li>
+<li><a href="#internet-layer">Internet layer</a> the "endpoint connector"</li>
+<li><a href="#middleware-layer">Middleware layer</a> the "data analyzer and processor"</li>
+<li><a href="#application-layer">Application layer</a> the "user interface"</li>
+<li>Some sources also name sixth layer:</li>
+<li><a href="#business-layer">Business layer</a> the "core logic"</li>
+<li>Each layer is utilized by layer below without knowledge of other layers</li>
+<li><img alt="IoT 5 Layered Architecture" src="../img/iot-5-layer-architecture.png" /></li>
+<li>Read more: <a href="https://www.mdpi.com/1424-8220/18/9/2796/htm">IoT Elements, Layered Architectures and Security Issues: A Comprehensive Survey</a></li>
+</ul>
+<h3 id="five-layers-of-iot-architecture">Five-layers of IoT architecture</h3>
+<h4 id="edge-technology-layer">Edge technology layer</h4>
+<ul>
+<li>Also known as <strong>perception layer</strong> or <strong>hardware layer</strong></li>
+<li>Physical objects (hardware components)</li>
+<li>Covers IoT capable devices</li>
+<li>E.g. sensors, actuators, heat sensor, RFID tags, readers, device itself</li>
+<li>Connects devices within network and server</li>
+<li>Gathers environment data</li>
+<li><strong>Key security components</strong></li>
+<li>Encryption and key agreement</li>
+<li>Sensor data protection</li>
+<li><strong>Vulnerabilities</strong></li>
+<li>Eavesdropping: real time attack to intercept privacy communications.</li>
+<li>Node Capture: capturing a key node such as gateway to reveal information.</li>
+<li>Fake Node and Malicious: adding node to input fake data to stop transmitting real information</li>
+<li>Replay (play back) attack: eavesdrops a communication and reusing it to authenticate.</li>
+<li>Timing Attack: Extract secrets by observing respond time</li>
+</ul>
+<h4 id="access-gateway-layer">Access gateway layer</h4>
+<ul>
+<li>Also known as <strong>network layer</strong> or <strong>transport layer</strong></li>
+<li>Handles data transmission i.e. transferring the data through network</li>
+<li>E.g. Wi-Fi, bluetooth</li>
+<li>Enables communication</li>
+<li>Connects two endpoints e.g. a clients with a device.</li>
+<li>Includes the initial data handling.</li>
+<li>Through e.g. message routing, message identification, and subscriptions.</li>
+<li><strong>Key security components</strong></li>
+<li>Encryption</li>
+<li>Identity authentication</li>
+<li><strong>Vulnerabilities</strong></li>
+<li>Denial of Service (DoS) Attack with redundant requests</li>
+<li>Main-in-The-Middle (MiTM) Attack: to intercept and manipulate data in real-time</li>
+<li>Storage Attack: Changing data stored in device or cloud</li>
+<li>Exploit attack: Exploits vulnerabilities in an application, system or hardware</li>
+</ul>
+<h4 id="internet-layer">Internet layer</h4>
+<ul>
+<li>Responsible for end-points connectivity.</li>
+<li>Carries out communication between two endpoints.</li>
+<li>E.g. device-to-device, device-to-cloud, device-to-gateway and back-end data-sharing.</li>
+</ul>
+<h4 id="middleware-layer">Middleware layer</h4>
+<ul>
+<li>Also known as <strong>processing layer</strong></li>
+<li>Responsible for device and information management.</li>
+<li>Handles data analytics</li>
+<li>I.e. storing, processing and analysis of data.</li>
+<li>E.g. data analysis, data aggregation, data filtering, device information discovery, and access control.</li>
+<li>Behaves as interface for two-way communication between</li>
+<li><a href="#application-layer">Application layer</a> (the user interface).</li>
+<li><a href="#edge-technology-layer">Edge technology layer</a> (the hardware).</li>
+<li><strong>Key security components</strong></li>
+<li>Key security layer, secure cloud computing, antivirus</li>
+<li><strong>Vulnerabilities</strong></li>
+<li>Exhaustion: Can disturb memory, battery e.g. after effect of a DoS</li>
+<li>Malware</li>
+</ul>
+<h4 id="application-layer">Application layer</h4>
+<ul>
+<li>The user interface for</li>
+<li>Graphic data representation</li>
+<li>Controlling, managing and commanding IoT devices.</li>
+<li>Responsible for delivering <em>service</em> and <em>data</em> to users.</li>
+<li>A service is application-specific e.g. industrial, manufacturing, automobile, security, healthcare...</li>
+<li><strong>Key security components</strong></li>
+<li>Authentication</li>
+<li>Key agreement</li>
+<li><strong>Vulnerabilities</strong></li>
+<li>Cross site scripting: injecting code through e.g. JavaScript</li>
+<li>Malicious code attack: can activate itself or require user attention to perform an action.</li>
+<li>Dealing with Mass Data<ul>
+<li>Caused by massive amount of data transmission</li>
+<li>Can lead to data loss and network disturbance</li>
+</ul>
+</li>
+</ul>
+<h3 id="other-iot-layers">Other IoT layers</h3>
+<h4 id="business-layer">Business layer</h4>
+<ul>
+<li>Includes business models</li>
+<li>System management</li>
+<li><strong>Key security components</strong></li>
+<li>Privacy protection</li>
+<li><strong>Vulnerabilities</strong></li>
+<li>Business logic attack: exploits a programming flaw</li>
+<li>Zero-day attack: exploits security hole unknown to the vendor</li>
+</ul>
+<h2 id="iot-connectivity">IoT connectivity</h2>
+<h3 id="wireless-iot-connectivity">Wireless IoT connectivity</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Approx. range up to</th>
+<th>Connectivity</th>
+<th>Speed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">10 cm</td>
+<td>NFC</td>
+<td>424 kbit/s</td>
+</tr>
+<tr>
+<td align="center">1 m</td>
+<td>RFID</td>
+<td>300 tags per second</td>
+</tr>
+<tr>
+<td align="center">10 m</td>
+<td>Li-Fi</td>
+<td>100 gbit/s</td>
+</tr>
+<tr>
+<td align="center">60 m</td>
+<td>Bluetooth low energi (BLE)</td>
+<td>1 or 2 mbit/s</td>
+</tr>
+<tr>
+<td align="center">100 m</td>
+<td> WiFi</td>
+<td>1300 mbit/s</td>
+</tr>
+<tr>
+<td align="center">1 km</td>
+<td>Wi-Fi HaLow</td>
+<td>78 mbit/s</td>
+</tr>
+<tr>
+<td align="center">2 km</td>
+<td>5G</td>
+<td>20 gbit/s</td>
+</tr>
+<tr>
+<td align="center">30 km</td>
+<td>LTE-Advanced</td>
+<td>300 mbit/s</td>
+</tr>
+<tr>
+<td align="center">70 km</td>
+<td>Celullar</td>
+<td>- (depends on 4g etc.)</td>
+</tr>
+<tr>
+<td align="center">1000 km</td>
+<td>LPWAN</td>
+<td>200 kbit/s</td>
+</tr>
+<tr>
+<td align="center">World-wide</td>
+<td>VSAT</td>
+<td>16 mbit/s</td>
+</tr>
+</tbody>
+</table>
+<h4 id="short-range-wireless-communication">Short-range wireless communication</h4>
+<ul>
+<li><strong>Bluetooth Low Energy (BLE)</strong></li>
+<li>Newer versions of bluetooth (after 4.0)</li>
+<li>Optimized for battery usage.</li>
+<li><strong>Wi-Fi</strong></li>
+<li>Wireless network protocol using radio waves.</li>
+<li>Wi-Fi 6 specification standard (2020) is the latest standard (x6 faster).</li>
+<li><strong>Radio-Frequency Identification (RFID)</strong></li>
+<li>Data storage tag that can be attached to an item for tracking</li>
+<li>Passive tag has range up to 1m while active tags can go up to 100m.</li>
+<li>Used in e.g. passports, credit cards.</li>
+<li><strong>Li-Fi (Light-Fidelity)</strong></li>
+<li>Similar to Wi-Fi, but using visible light for communication</li>
+<li><strong>Near-Field Communication (NFC)</strong></li>
+<li>Based on a radio frequency (RF)</li>
+<li>Used e.g. in phones, payment cards</li>
+<li>Must either either physically touch or be in a few centimeters of each other.</li>
+</ul>
+<h4 id="medium-range-wireless-communication">Medium-Range Wireless Communication</h4>
+<ul>
+<li><strong>LTE-Advanced</strong>: Formally submitted as a candidate 4G, often being described as 3.9G.</li>
+<li><strong>Wi-Fi HaLow</strong>: low power, long-range, also known as "WiFi for Internet of Things"</li>
+<li><strong>5G</strong>: Introduced in 2019, highest with minimum of 10 Gbps</li>
+</ul>
+<h4 id="long-range-wireless-communication">Long Range Wireless Communication</h4>
+<ul>
+<li><strong>Low-Power Wild-Area Network (LPWAN)</strong></li>
+<li>Long range communication (up to 10 km) at a low bit rate</li>
+<li><strong>(VSAT) Very Small Aperture Terminal</strong></li>
+<li>World-wide satellite communication technology uses small dish antennas</li>
+<li><strong>Cellular</strong> using e.g. radio towers to spread e.g. 4G, 5G..</li>
+</ul>
+<h3 id="wired-iot-connectivity">Wired IoT connectivity</h3>
+<ul>
+<li><strong>Ethernet</strong> (cat 6 up to 10 Gbps speed)</li>
+<li><strong>Power-Line Communication (PLC)</strong> : using electrical wiring to carry power and data, around 200 Mbit/s.</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../17-mobile-platforms/mobile-attacks/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Mobile attacks" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Mobile attacks
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../iot-security/" class="md-footer__link md-footer__link--next" aria-label="Next: IoT security" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              IoT security
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+    
+  </body>
+</html>

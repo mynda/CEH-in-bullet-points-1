@@ -1,0 +1,3059 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>Sniffing attacks overview - CEH-IN-BULLET-POINTS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Barlow";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sniffing-attacks-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CEH-IN-BULLET-POINTS" class="md-header__button md-logo" aria-label="CEH-IN-BULLET-POINTS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CEH-IN-BULLET-POINTS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sniffing attacks overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CEH-IN-BULLET-POINTS" class="md-nav__button md-logo" aria-label="CEH-IN-BULLET-POINTS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    CEH-IN-BULLET-POINTS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Information security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Information security" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Information security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/information-security-overview/" class="md-nav__link">
+        Information security overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/security-threats-and-attacks/" class="md-nav__link">
+        Security threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_3" type="checkbox" id="__nav_1_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_3">
+          Information security controls
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Information security controls" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Information security controls
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/information-security-controls/" class="md-nav__link">
+        Information security controls overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/risk-management/" class="md-nav__link">
+        Risk management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/incident-management/" class="md-nav__link">
+        Incident management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/network-security/" class="md-nav__link">
+        Network security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/security-policies/" class="md-nav__link">
+        Security policies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/physical-security/" class="md-nav__link">
+        Physical security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/data-leakage-backup-and-recovery/" class="md-nav__link">
+        Data leakage backup and recovery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/identity-access-management-%28iam%29/" class="md-nav__link">
+        Identity access management (IAM)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/threat-intelligence-and-forensics/" class="md-nav__link">
+        Threat intelligence and forensics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/laws-standards-and-regulations/" class="md-nav__link">
+        Laws, standards and regulations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Hacking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hacking" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Hacking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/hacker-types/" class="md-nav__link">
+        Hacker types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/hacking-stages/" class="md-nav__link">
+        Hacking stages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Penetration testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Penetration testing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Penetration testing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/penetration-testing/" class="md-nav__link">
+        Penetration testing overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/penetration-testing-phases/" class="md-nav__link">
+        Penetration testing phases
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Footprinting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Footprinting" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Footprinting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/footprinting-overview/" class="md-nav__link">
+        Footprinting overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/search-engines-and-online-resources/" class="md-nav__link">
+        Search engines and online resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/whois-geoiplocation-and-dns-interrogation/" class="md-nav__link">
+        WHOIS, GeoIpLocation and DNS interrogation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/email-footprinting/" class="md-nav__link">
+        Email footprinting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/website-footprinting/" class="md-nav__link">
+        Website footprinting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/network-footprinting/" class="md-nav__link">
+        Network footprinting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Scanning networks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Scanning networks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Scanning networks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-networks-overview/" class="md-nav__link">
+        Scanning networks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/tcpip-basics/" class="md-nav__link">
+        TCP/IP basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-tools/" class="md-nav__link">
+        Scanning tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-techniques/" class="md-nav__link">
+        Scanning techniques
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/bypassing-ids-and-firewall/" class="md-nav__link">
+        Bypassing IDS and firewall
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/banner-grabbing/" class="md-nav__link">
+        Banner grabbing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Enumeration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Enumeration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Enumeration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-enumeration/enumeration-overview/" class="md-nav__link">
+        Enumeration Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-enumeration/dns-enumeration/" class="md-nav__link">
+        DNS enumeration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Vulnerabilities
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vulnerabilities" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Vulnerabilities
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/vulnerability-analysis/" class="md-nav__link">
+        Vulnerability analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/common-vulnerabilities/" class="md-nav__link">
+        Common vulnerabilities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/automated-penetration-testing-tools/" class="md-nav__link">
+        Automated penetration testing tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          System hacking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="System hacking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          System hacking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Cracking passwords
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cracking passwords" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cracking passwords
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/cracking-passwords-overview/" class="md-nav__link">
+        Cracking passwords overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/microsoft-authentication/" class="md-nav__link">
+        Microsoft authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/password-cracking-tools/" class="md-nav__link">
+        Password cracking tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/linux-basics/" class="md-nav__link">
+        Linux basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/escalating-privileges/" class="md-nav__link">
+        Escalating privileges
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/executing-applications/" class="md-nav__link">
+        Executing applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/hiding-files/" class="md-nav__link">
+        Hiding files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/covering-tracks/" class="md-nav__link">
+        Covering tracks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Malware overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Malware overview" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Malware overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/malware-overview/" class="md-nav__link">
+        Malware overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/trojans/" class="md-nav__link">
+        Trojans
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/viruses/" class="md-nav__link">
+        Viruses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/malware-analysis/" class="md-nav__link">
+        Malware analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Sniffing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sniffing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Sniffing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sniffing-overview/" class="md-nav__link">
+        Sniffing overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sniffing-tools/" class="md-nav__link">
+        Sniffing tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Sniffing attacks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sniffing attacks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Sniffing attacks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Sniffing attacks overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Sniffing attacks overview
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mac-flooding" class="md-nav__link">
+    MAC flooding
+  </a>
+  
+    <nav class="md-nav" aria-label="MAC flooding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    MAC
+  </a>
+  
+    <nav class="md-nav" aria-label="MAC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-addressable-memory-cam-table" class="md-nav__link">
+    Content Addressable Memory (CAM) table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac-flooding-attack" class="md-nav__link">
+    MAC flooding attack
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dhcp-attacks" class="md-nav__link">
+    DHCP attacks
+  </a>
+  
+    <nav class="md-nav" aria-label="DHCP attacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dhcp-introduction" class="md-nav__link">
+    DHCP introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="DHCP introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dhcp-snooping" class="md-nav__link">
+    DHCP snooping
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp-starvation" class="md-nav__link">
+    DHCP starvation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp-starvation-countermeasures" class="md-nav__link">
+    DHCP starvation countermeasures
+  </a>
+  
+    <nav class="md-nav" aria-label="DHCP starvation countermeasures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#port-security" class="md-nav__link">
+    Port security
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-poisoning" class="md-nav__link">
+    DNS poisoning
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS poisoning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dns-introduction" class="md-nav__link">
+    DNS introduction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-poisoning-attack" class="md-nav__link">
+    DNS poisoning attack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-poisoning-countermeasures" class="md-nav__link">
+    DNS poisoning countermeasures
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS poisoning countermeasures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dnssec-domain-name-system-security-extension" class="md-nav__link">
+    DNSSEC (Domain Name System Security Extension)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vlan-hopping" class="md-nav__link">
+    VLAN hopping
+  </a>
+  
+    <nav class="md-nav" aria-label="VLAN hopping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vlan" class="md-nav__link">
+    VLAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlan-hopping-attack" class="md-nav__link">
+    VLAN hopping attack
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ospf-attacks" class="md-nav__link">
+    OSPF attacks
+  </a>
+  
+    <nav class="md-nav" aria-label="OSPF attacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ospf-open-shortest-path-first" class="md-nav__link">
+    OSPF: Open Shortest Path First
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compromised-router-attacks" class="md-nav__link">
+    Compromised router attacks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospf-attacks-countermeasures" class="md-nav__link">
+    OSPF attacks countermeasures
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spoofing-attacks/" class="md-nav__link">
+        Spoofing attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arp-poisoning/" class="md-nav__link">
+        ARP poisoning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Wireless networks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wireless networks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Wireless networks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-networks-overview/" class="md-nav__link">
+        Wireless networks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/aaa-protocols/" class="md-nav__link">
+        AAA protocols
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-threats-and-attacks/" class="md-nav__link">
+        Wireless threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-security-tools/" class="md-nav__link">
+        Wireless security tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/bluetooth/" class="md-nav__link">
+        Bluetooth
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Social engineering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Social engineering" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Social engineering
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-social-engineering/social-engineering-overview/" class="md-nav__link">
+        Social engineering overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-social-engineering/social-engineering-types/" class="md-nav__link">
+        Social engineering types
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Firewalls IDS and Honeypots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Firewalls IDS and Honeypots" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Firewalls IDS and Honeypots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" type="checkbox" id="__nav_11_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_1">
+          Intrusion detection system (IDS)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Intrusion detection system (IDS)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          Intrusion detection system (IDS)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/intrusion-detection-system-%28ids%29-overview/" class="md-nav__link">
+        Intrusion detection system (IDS) overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/evading-ids/" class="md-nav__link">
+        Evading IDS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" type="checkbox" id="__nav_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_2">
+          Firewall
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Firewall" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Firewall
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/firewall-overview/" class="md-nav__link">
+        Firewall overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/evading-firewalls/" class="md-nav__link">
+        Evading firewalls
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/honeypot/" class="md-nav__link">
+        Honeypot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Web servers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web servers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Web servers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-web-servers/hacking-web-servers/" class="md-nav__link">
+        Hacking web servers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-web-servers/web-server-threats-and-attacks/" class="md-nav__link">
+        Web server threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          Web applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web applications" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          Web applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/hacking-web-applications/" class="md-nav__link">
+        Hacking web applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/owasp-top-10-threats/" class="md-nav__link">
+        OWASP top 10 threats
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/denial-of-service/" class="md-nav__link">
+        Denial of service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/session-hijacking/" class="md-nav__link">
+        Session hijacking
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          SQL injection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SQL injection" data-md-level="1">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          SQL injection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-sql-injection/sql-injection-overview/" class="md-nav__link">
+        SQL injection overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-sql-injection/sql-injection-types/" class="md-nav__link">
+        SQL injection types
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          Cryptography
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cryptography" data-md-level="1">
+        <label class="md-nav__title" for="__nav_15">
+          <span class="md-nav__icon md-icon"></span>
+          Cryptography
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/cryptography-overview/" class="md-nav__link">
+        Cryptography overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encryption-algorithms/" class="md-nav__link">
+        Encryption algorithms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/hashing-algorithms/" class="md-nav__link">
+        Hashing algorithms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_4" type="checkbox" id="__nav_15_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15_4">
+          Communication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Communication" data-md-level="2">
+        <label class="md-nav__title" for="__nav_15_4">
+          <span class="md-nav__icon md-icon"></span>
+          Communication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encrypting-communication/" class="md-nav__link">
+        Encrypting communication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/tunneling-protocols/" class="md-nav__link">
+        Tunneling protocols
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encrypting-disk/" class="md-nav__link">
+        Encrypting disk
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/cryptanalysis/" class="md-nav__link">
+        Cryptanalysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16">
+          Cloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud" data-md-level="1">
+        <label class="md-nav__title" for="__nav_16">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/cloud-computing/" class="md-nav__link">
+        Cloud computing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/cloud-security/" class="md-nav__link">
+        Cloud security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/container-security/" class="md-nav__link">
+        Container security
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" type="checkbox" id="__nav_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_17">
+          Mobile platforms
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobile platforms" data-md-level="1">
+        <label class="md-nav__title" for="__nav_17">
+          <span class="md-nav__icon md-icon"></span>
+          Mobile platforms
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-hacking/" class="md-nav__link">
+        Mobile hacking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-attack-vectors/" class="md-nav__link">
+        Mobile attack vectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-attacks/" class="md-nav__link">
+        Mobile attacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18" type="checkbox" id="__nav_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_18">
+          IoT and OT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IoT and OT" data-md-level="1">
+        <label class="md-nav__title" for="__nav_18">
+          <span class="md-nav__icon md-icon"></span>
+          IoT and OT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18-iot-and-ot/iot-overview/" class="md-nav__link">
+        IoT overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18-iot-and-ot/iot-security/" class="md-nav__link">
+        IoT security
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19-exam-readiness/exam-readiness/" class="md-nav__link">
+        Exam readiness
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mac-flooding" class="md-nav__link">
+    MAC flooding
+  </a>
+  
+    <nav class="md-nav" aria-label="MAC flooding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    MAC
+  </a>
+  
+    <nav class="md-nav" aria-label="MAC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-addressable-memory-cam-table" class="md-nav__link">
+    Content Addressable Memory (CAM) table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac-flooding-attack" class="md-nav__link">
+    MAC flooding attack
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dhcp-attacks" class="md-nav__link">
+    DHCP attacks
+  </a>
+  
+    <nav class="md-nav" aria-label="DHCP attacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dhcp-introduction" class="md-nav__link">
+    DHCP introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="DHCP introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dhcp-snooping" class="md-nav__link">
+    DHCP snooping
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp-starvation" class="md-nav__link">
+    DHCP starvation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp-starvation-countermeasures" class="md-nav__link">
+    DHCP starvation countermeasures
+  </a>
+  
+    <nav class="md-nav" aria-label="DHCP starvation countermeasures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#port-security" class="md-nav__link">
+    Port security
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-poisoning" class="md-nav__link">
+    DNS poisoning
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS poisoning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dns-introduction" class="md-nav__link">
+    DNS introduction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-poisoning-attack" class="md-nav__link">
+    DNS poisoning attack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-poisoning-countermeasures" class="md-nav__link">
+    DNS poisoning countermeasures
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS poisoning countermeasures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dnssec-domain-name-system-security-extension" class="md-nav__link">
+    DNSSEC (Domain Name System Security Extension)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vlan-hopping" class="md-nav__link">
+    VLAN hopping
+  </a>
+  
+    <nav class="md-nav" aria-label="VLAN hopping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vlan" class="md-nav__link">
+    VLAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlan-hopping-attack" class="md-nav__link">
+    VLAN hopping attack
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ospf-attacks" class="md-nav__link">
+    OSPF attacks
+  </a>
+  
+    <nav class="md-nav" aria-label="OSPF attacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ospf-open-shortest-path-first" class="md-nav__link">
+    OSPF: Open Shortest Path First
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compromised-router-attacks" class="md-nav__link">
+    Compromised router attacks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospf-attacks-countermeasures" class="md-nav__link">
+    OSPF attacks countermeasures
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="sniffing-attacks-overview">Sniffing attacks overview</h1>
+<ul>
+<li><a href="../spoofing-attacks/">Spoofing attacks</a></li>
+<li><a href="../arp-poisoning/">ARP posioning</a></li>
+</ul>
+<h2 id="mac-flooding">MAC flooding</h2>
+<h3 id="mac">MAC</h3>
+<ul>
+<li>MAC address is a unique identifier of a network node.</li>
+<li>E.g. <code>52:54:00:e5:83:bb</code></li>
+<li>First three sets (<code>52:54:00</code>): Manufacturers signature</li>
+<li>Last three sets is set in different ways depending on manufacturers</li>
+<li>Embedded in the device (firmware or some read-only part of the device)</li>
+<li>In a network, each device has its own MAC address</li>
+<li>Associates the device with a physical port</li>
+<li>🤗 If your MAC address is logged, police can use it to contact the manufacturer to ask who purchased the device.</li>
+<li>Difficult to trace it if it was paid by cash.</li>
+<li>💡🤗 You may have free WiFi forever if you can change your MAC address.</li>
+<li>Usually checked in public places e.g. in an airport when they give you free WiFi.</li>
+</ul>
+<h4 id="content-addressable-memory-cam-table">Content Addressable Memory (CAM) table</h4>
+<ul>
+<li>Used by switches</li>
+<li>Stores all available MAC addresses and their virtual LAN parameters for each port.</li>
+<li>Possible to sniff by flooding it.</li>
+</ul>
+<h3 id="mac-flooding-attack">MAC flooding attack</h3>
+<ul>
+<li>Flooding the switch with thousands of MAC address mappings such that it cannot keep up.</li>
+<li>When the table can't keep up it starts sending every message out to every port.</li>
+<li>I.e. switch is forced to behave as a hub.</li>
+<li>Allowed by the fixed size of the CAM table.</li>
+<li>Steps:</li>
+<li>Send large number of fake MAC addresses to the switch until CAM table becomes full</li>
+<li>Switch enters fail-open mode<ul>
+<li>where it broadcasts the incoming traffic to all ports on the network</li>
+</ul>
+</li>
+<li>Attacker (with promiscuous mode) starts sniffing the traffic passing through the network.</li>
+<li>Can be followed up using <a href="../arp-poisoning/">ARP spoofing</a> to retain access to data after switches recover.</li>
+<li>See also <a href="../spoofing-attacks/#mac-spoofing">MAC spoofing</a></li>
+</ul>
+<h2 id="dhcp-attacks">DHCP attacks</h2>
+<h3 id="dhcp-introduction">DHCP introduction</h3>
+<ul>
+<li>DHCP: Dynamic Host Configuration Protocol</li>
+<li>Client/server protocol</li>
+<li>Used by routers as they start a DHCP server</li>
+<li>Server provides following to DHCP-enabled clients:</li>
+<li>IP addresses</li>
+<li>Configuration information</li>
+<li>Time period of the lease offer</li>
+<li>A possible way to drop connection of others in network is to brute-force DHCP server with "returning lease" messages.</li>
+<li>It'll force everybody to lose connection and request IP addresses again</li>
+</ul>
+<h4 id="dhcp-snooping">DHCP snooping</h4>
+<ul>
+<li>Layer 2 security feature</li>
+<li>Built into operating system of a capable network switches</li>
+<li>Filters, rate-limits suspicious DHCP traffic</li>
+<li>Builds and maintains the <strong>DHCP snooping binding database</strong></li>
+<li>Also known as <strong>DHCP snooping binding table</strong></li>
+<li>Stores MAC + assigned IP + <a href="#vlan">VLAN</a> and switch ports</li>
+<li>Uses to validate subsequent requests from untrusted hosts.</li>
+<li>📝 <strong>Dynamic ARP Inspection (DAI)</strong></li>
+<li>Defense against too many incoming ARP broadcasts.</li>
+<li>Each port on VLAN is untrusted by default</li>
+<li>Each IP to MAC conversion is validated using DHCP snooping binding database.</li>
+</ul>
+<h3 id="dhcp-starvation">DHCP starvation</h3>
+<ul>
+<li>Exhaust all available addresses from the server</li>
+<li>Exploits that DHCP has a limited number of ip addresses to lease.</li>
+<li>A type of Denial of Service attack</li>
+<li>Flow</li>
+<li>Starve it, and no new clients will be able to connect<ol>
+<li>Attacker broadcasts large number of DHCP REQUEST messages with spoofed source MAC addresses.</li>
+<li>Available IP addresses in the DHCP server scope becomes depleted.</li>
+<li>DHCP server becomes unable to allocate configurations to new clients and issue any IP addresses</li>
+</ol>
+</li>
+<li>Set-up rogue (fake server) to respond to the discovery requests<ol>
+<li>Attacker sets up a rogue DHCP server to respond to DHCP discovery requests.</li>
+<li>If a client accepts the rogue server as its DHCP server, then the attacker can listen to all traffic going from or to the client.</li>
+</ol>
+</li>
+<li><strong>Tools</strong></li>
+<li><a href="https://linux.die.net/man/8/yersinia"><code>yersinia</code></a><ul>
+<li>Start UI using <code>yersinia -G</code> then click on "Start attack"</li>
+</ul>
+</li>
+<li><a href="http://dhcpstarv.sourceforge.net/">DHCPstarv</a></li>
+</ul>
+<h3 id="dhcp-starvation-countermeasures">DHCP starvation countermeasures</h3>
+<ul>
+<li>Authentication</li>
+<li>Configure <a href="#dhcp-snooping">DHCP snooping</a></li>
+<li>Trusted sources</li>
+<li>❗Vulnerable to mimicing them</li>
+</ul>
+<h4 id="port-security">Port security</h4>
+<ul>
+<li>Allows traffic from a specific MAC address to enter to a port</li>
+<li>Only allowing one MAC through a port</li>
+<li>Only one IP at a time can be requested</li>
+<li>❗ Vulnerable to <a href="../spoofing-attacks/#mac-spoofing">spoofing MAC addresses</a></li>
+</ul>
+<h2 id="dns-poisoning">DNS poisoning</h2>
+<h3 id="dns-introduction">DNS introduction</h3>
+<ul>
+<li>Domain Name Server</li>
+<li>📝 Protocol that resolves domain names into IP addresses using default port 53.</li>
+<li>Stores domain name and IP address pairs in a <strong>DNS table</strong>.</li>
+</ul>
+<h3 id="dns-poisoning-attack">DNS poisoning attack</h3>
+<ul>
+<li>📝 Also known as <strong>DNS cache poisoning</strong> and <strong>DNS spoofing</strong></li>
+<li>📝 Manipulating the DNS table by replacing a legitimate IP address with a malicious one</li>
+<li>E.g. redirecting <code>cloudarchitecture.io</code> to attackers IP address.</li>
+<li>🤗 Used for internet censorship in many countries.</li>
+<li>Flow</li>
+<li>Attacker makes DNS request to target</li>
+<li>DNS server asks the root name server for the entry</li>
+<li>Attacker floods the DNS server with a fake response for the targeted domain until legitimate response from root server is ignored</li>
+<li>The poisoned entry remains in cache for hours and even days</li>
+<li>Can be used after <a href="../arp-poisoning/">ARP poisoning</a> through <strong>DNS spoof</strong> plugin of <a href="https://www.ettercap-project.org/">Ettercap</a>.</li>
+<li>Can be followed up with e.g. • man-in-the-middle attacks • <a href="../../12-web-servers/web-server-threats-and-attacks/#website-defacement">website defacement</a> attacks</li>
+</ul>
+<h3 id="dns-poisoning-countermeasures">DNS poisoning countermeasures</h3>
+<ul>
+<li><strong>Active monitoring</strong></li>
+<li>Monitor DNS data for new patterns such as new host</li>
+<li>E.g. by using intrusion detection system (IDS)</li>
+<li><strong>Keep DNS servers up-to-date</strong></li>
+<li>Updated versions have port randomization and cryptographically secure transaction IDs against attackers.</li>
+<li><strong>Randomize source and destination IP, query IDs, during name requests</strong></li>
+<li>Makes harder for attackers to send spoofed responses as it'd be harder to guess the address and query ID.</li>
+<li><strong>Use HTTPS and/or TLS for securing the traffic</strong></li>
+<li>Also known as <strong>DNS over HTTPS (DoH)</strong> and <strong>DNS over TLS (DoT)</strong></li>
+<li>SSL and TLS use certificates to verify the identity of the other party.</li>
+<li>So although they do not protect against cache poisoning itself, the certificates help to protect against the results</li>
+</ul>
+<h4 id="dnssec-domain-name-system-security-extension">DNSSEC (Domain Name System Security Extension)</h4>
+<ul>
+<li>Developed by The Internet Engineering Task Force (IETF)</li>
+<li>Open standards organization, which develops and promotes voluntary Internet standards</li>
+<li>Help verifying the true originator of DNS messaging</li>
+<li>📝 Provides secure DNS data authentication by using digital signatures and encryption.</li>
+<li>Adds cryptographic signatures to existing DNS records, stored in DNS name servers.</li>
+<li>Widely considered one of the greatest cache poisoning prevention tool as a defense</li>
+<li>Allows verifying that a requested DNS record comes from its authoritative name server and wasn't altered, opposed to a fake record injected in a man-in-the-middle attack.</li>
+<li><strong>Chain of trust</strong>: E.g. <code>cloudarchitecture.io</code>'s signature is verified by <code>.io</code> signature that is verified by root certificate (signed by <a href="https://www.cloudflare.com/en-gb/dns/dnssec/root-signing-ceremony/">IANA</a>)</li>
+<li><strong>IANA</strong>: Centrally coordinates Internet for DNS Root, IP addressing, and other Internet protocol resources.</li>
+</ul>
+<h2 id="vlan-hopping">VLAN hopping</h2>
+<h3 id="vlan">VLAN</h3>
+<ul>
+<li>📝 Allows multiple separate LANs/networks on same switch through logical grouping</li>
+<li>Provides network separation</li>
+<li>Hosts one one VLAN does not see hosts on other one</li>
+<li><strong>Port-based VLAN</strong></li>
+<li>Designate set of ports on the switch<ul>
+<li>account department VLAN, shipping department VLAN..</li>
+</ul>
+</li>
+<li>Connect devices to right ports each group is a VLAN</li>
+<li><strong>Tag-based VLAN</strong> aka IEEE 802.1q VLANs</li>
+<li>Basically a tags frames with which VLAN it belongs to<ul>
+<li>Frame = Primitive packet on layer 2</li>
+</ul>
+</li>
+<li>Tagged frame = IEEE 802.1q frame</li>
+<li>Can tag/assign based on e.g. <a href="../../09-wireless-networks/wireless-networks-overview/#ieee-8021x">802.1x</a></li>
+<li><strong>Trunk</strong> (=802.1q link)</li>
+<li>Allows sharing VLANs (VLAN IDs) between switches</li>
+</ul>
+<h3 id="vlan-hopping-attack">VLAN hopping attack</h3>
+<ul>
+<li>Attacking host on a VLAN to gain access to traffic on other VLANs</li>
+<li>E.g. using <a href="https://github.com/nccgroup/vlan-hopping---frogger">Frogger</a></li>
+<li><strong>Switch spoofing</strong></li>
+<li>Attacking host imitates a trunking switch</li>
+<li><strong>Double tagging</strong></li>
+<li>Attacker prepends two VLAN tags to frames</li>
+<li>Second tag is the target host</li>
+<li>First switch removes first innocent VLAN tag and sends packet to second switch.</li>
+<li>Allows bypassing security mechanisms and reaching the target hosts.</li>
+<li>Replies are not forwarded to the attacker host</li>
+</ul>
+<h2 id="ospf-attacks">OSPF attacks</h2>
+<ul>
+<li>Forms a trusted relationship with the adjacent router</li>
+<li>Usually these attacks go undetected</li>
+<li><strong>Remote attacks</strong>: caused by misconfigurations</li>
+</ul>
+<h3 id="ospf-open-shortest-path-first">OSPF: Open Shortest Path First</h3>
+<ul>
+<li>Most popular routing protocol for IP networks</li>
+<li>Dynamically discovers neighbors like RIPv2 and BPG (Border Gateway Protocol)</li>
+<li>Used by e.g. internet service providers (ISP) and cloud providers for hybrid communication</li>
+</ul>
+<h3 id="compromised-router-attacks">Compromised router attacks</h3>
+<ul>
+<li>Placing a rogue router in target network e.g. remote branch/headquarters</li>
+<li>Allows attacker to inject routes to redirect traffic for MITM attacks or DoS attacks.</li>
+<li>Attacker learns about that entire routing domain such network types, links etc</li>
+</ul>
+<h3 id="ospf-attacks-countermeasures">OSPF attacks countermeasures</h3>
+<ul>
+<li>📝 Configure OSPF to authenticate every OSPF message</li>
+<li>Routers must pass the authentication process before becoming OSPF neighbors.</li>
+<li>Monitor OSPF neighbors for eavesdropping through e.g. a SIEM</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../sniffing-tools/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sniffing tools" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Sniffing tools
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../spoofing-attacks/" class="md-footer__link md-footer__link--next" aria-label="Next: Spoofing attacks" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Spoofing attacks
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+    
+  </body>
+</html>

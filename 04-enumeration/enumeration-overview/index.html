@@ -1,0 +1,3195 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>Enumeration Overview - CEH-IN-BULLET-POINTS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Barlow";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enumeration-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CEH-IN-BULLET-POINTS" class="md-header__button md-logo" aria-label="CEH-IN-BULLET-POINTS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CEH-IN-BULLET-POINTS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Enumeration Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CEH-IN-BULLET-POINTS" class="md-nav__button md-logo" aria-label="CEH-IN-BULLET-POINTS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    CEH-IN-BULLET-POINTS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Information security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Information security" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Information security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/information-security-overview/" class="md-nav__link">
+        Information security overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/security-threats-and-attacks/" class="md-nav__link">
+        Security threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_3" type="checkbox" id="__nav_1_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_3">
+          Information security controls
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Information security controls" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Information security controls
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/information-security-controls/" class="md-nav__link">
+        Information security controls overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/risk-management/" class="md-nav__link">
+        Risk management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/incident-management/" class="md-nav__link">
+        Incident management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/network-security/" class="md-nav__link">
+        Network security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/security-policies/" class="md-nav__link">
+        Security policies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/physical-security/" class="md-nav__link">
+        Physical security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/data-leakage-backup-and-recovery/" class="md-nav__link">
+        Data leakage backup and recovery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/identity-access-management-%28iam%29/" class="md-nav__link">
+        Identity access management (IAM)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/threat-intelligence-and-forensics/" class="md-nav__link">
+        Threat intelligence and forensics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/laws-standards-and-regulations/" class="md-nav__link">
+        Laws, standards and regulations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Hacking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hacking" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Hacking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/hacker-types/" class="md-nav__link">
+        Hacker types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/hacking-stages/" class="md-nav__link">
+        Hacking stages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Penetration testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Penetration testing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Penetration testing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/penetration-testing/" class="md-nav__link">
+        Penetration testing overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/penetration-testing-phases/" class="md-nav__link">
+        Penetration testing phases
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Footprinting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Footprinting" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Footprinting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/footprinting-overview/" class="md-nav__link">
+        Footprinting overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/search-engines-and-online-resources/" class="md-nav__link">
+        Search engines and online resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/whois-geoiplocation-and-dns-interrogation/" class="md-nav__link">
+        WHOIS, GeoIpLocation and DNS interrogation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/email-footprinting/" class="md-nav__link">
+        Email footprinting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/website-footprinting/" class="md-nav__link">
+        Website footprinting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/network-footprinting/" class="md-nav__link">
+        Network footprinting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Scanning networks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Scanning networks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Scanning networks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-networks-overview/" class="md-nav__link">
+        Scanning networks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/tcpip-basics/" class="md-nav__link">
+        TCP/IP basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-tools/" class="md-nav__link">
+        Scanning tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-techniques/" class="md-nav__link">
+        Scanning techniques
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/bypassing-ids-and-firewall/" class="md-nav__link">
+        Bypassing IDS and firewall
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/banner-grabbing/" class="md-nav__link">
+        Banner grabbing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Enumeration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Enumeration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Enumeration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Enumeration Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Enumeration Overview
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#common-ports-and-services-to-enumerate" class="md-nav__link">
+    Common ports and services to enumerate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration-techniques" class="md-nav__link">
+    Enumeration techniques
+  </a>
+  
+    <nav class="md-nav" aria-label="Enumeration techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-enumeration" class="md-nav__link">
+    Windows enumeration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-user-account-enumeration" class="md-nav__link">
+    Windows user account enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows user account enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-identifier-sid" class="md-nav__link">
+    Security Identifier (SID)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-user-account-enumeration-tools" class="md-nav__link">
+    Windows user account enumeration tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netbios-enumeration" class="md-nav__link">
+    NetBIOS enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="NetBIOS enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#netbios-enumeration-tools" class="md-nav__link">
+    NetBIOS enumeration tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snmp-enumeration" class="md-nav__link">
+    SNMP enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="SNMP enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snmp-enumeration-tools" class="md-nav__link">
+    SNMP enumeration tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-enumeration" class="md-nav__link">
+    LDAP enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="LDAP enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    LDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-enumeration-countermeasures" class="md-nav__link">
+    LDAP enumeration countermeasures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-enumeration-tools" class="md-nav__link">
+    LDAP enumeration tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ntp-enumeration" class="md-nav__link">
+    NTP enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="NTP enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ntp" class="md-nav__link">
+    NTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ntp-enumeration-tools" class="md-nav__link">
+    NTP enumeration tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smtp-enumeration" class="md-nav__link">
+    SMTP enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="SMTP enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smtp" class="md-nav__link">
+    SMTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smtp-enumeration-through-smtp-commands" class="md-nav__link">
+    SMTP enumeration through SMTP commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smtp-enumeration-through-tools" class="md-nav__link">
+    SMTP enumeration through tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brute-forcing-active-directory" class="md-nav__link">
+    Brute forcing Active Directory
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns-enumeration/" class="md-nav__link">
+        DNS enumeration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Vulnerabilities
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vulnerabilities" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Vulnerabilities
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/vulnerability-analysis/" class="md-nav__link">
+        Vulnerability analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/common-vulnerabilities/" class="md-nav__link">
+        Common vulnerabilities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/automated-penetration-testing-tools/" class="md-nav__link">
+        Automated penetration testing tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          System hacking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="System hacking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          System hacking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Cracking passwords
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cracking passwords" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cracking passwords
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/cracking-passwords-overview/" class="md-nav__link">
+        Cracking passwords overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/microsoft-authentication/" class="md-nav__link">
+        Microsoft authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/password-cracking-tools/" class="md-nav__link">
+        Password cracking tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/linux-basics/" class="md-nav__link">
+        Linux basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/escalating-privileges/" class="md-nav__link">
+        Escalating privileges
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/executing-applications/" class="md-nav__link">
+        Executing applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/hiding-files/" class="md-nav__link">
+        Hiding files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/covering-tracks/" class="md-nav__link">
+        Covering tracks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Malware overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Malware overview" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Malware overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/malware-overview/" class="md-nav__link">
+        Malware overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/trojans/" class="md-nav__link">
+        Trojans
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/viruses/" class="md-nav__link">
+        Viruses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/malware-analysis/" class="md-nav__link">
+        Malware analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Sniffing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sniffing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Sniffing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/sniffing-overview/" class="md-nav__link">
+        Sniffing overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/sniffing-tools/" class="md-nav__link">
+        Sniffing tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Sniffing attacks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sniffing attacks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Sniffing attacks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/sniffing-attacks-overview/" class="md-nav__link">
+        Sniffing attacks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/spoofing-attacks/" class="md-nav__link">
+        Spoofing attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/arp-poisoning/" class="md-nav__link">
+        ARP poisoning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Wireless networks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wireless networks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Wireless networks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-networks-overview/" class="md-nav__link">
+        Wireless networks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/aaa-protocols/" class="md-nav__link">
+        AAA protocols
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-threats-and-attacks/" class="md-nav__link">
+        Wireless threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-security-tools/" class="md-nav__link">
+        Wireless security tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/bluetooth/" class="md-nav__link">
+        Bluetooth
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Social engineering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Social engineering" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Social engineering
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-social-engineering/social-engineering-overview/" class="md-nav__link">
+        Social engineering overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-social-engineering/social-engineering-types/" class="md-nav__link">
+        Social engineering types
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Firewalls IDS and Honeypots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Firewalls IDS and Honeypots" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Firewalls IDS and Honeypots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" type="checkbox" id="__nav_11_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_1">
+          Intrusion detection system (IDS)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Intrusion detection system (IDS)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          Intrusion detection system (IDS)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/intrusion-detection-system-%28ids%29-overview/" class="md-nav__link">
+        Intrusion detection system (IDS) overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/evading-ids/" class="md-nav__link">
+        Evading IDS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" type="checkbox" id="__nav_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_2">
+          Firewall
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Firewall" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Firewall
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/firewall-overview/" class="md-nav__link">
+        Firewall overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/evading-firewalls/" class="md-nav__link">
+        Evading firewalls
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-firewalls-ids-and-honeypots/honeypot/" class="md-nav__link">
+        Honeypot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Web servers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web servers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Web servers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-web-servers/hacking-web-servers/" class="md-nav__link">
+        Hacking web servers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-web-servers/web-server-threats-and-attacks/" class="md-nav__link">
+        Web server threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          Web applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web applications" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          Web applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/hacking-web-applications/" class="md-nav__link">
+        Hacking web applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/owasp-top-10-threats/" class="md-nav__link">
+        OWASP top 10 threats
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/denial-of-service/" class="md-nav__link">
+        Denial of service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/session-hijacking/" class="md-nav__link">
+        Session hijacking
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          SQL injection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SQL injection" data-md-level="1">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          SQL injection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-sql-injection/sql-injection-overview/" class="md-nav__link">
+        SQL injection overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-sql-injection/sql-injection-types/" class="md-nav__link">
+        SQL injection types
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          Cryptography
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cryptography" data-md-level="1">
+        <label class="md-nav__title" for="__nav_15">
+          <span class="md-nav__icon md-icon"></span>
+          Cryptography
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/cryptography-overview/" class="md-nav__link">
+        Cryptography overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encryption-algorithms/" class="md-nav__link">
+        Encryption algorithms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/hashing-algorithms/" class="md-nav__link">
+        Hashing algorithms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_4" type="checkbox" id="__nav_15_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15_4">
+          Communication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Communication" data-md-level="2">
+        <label class="md-nav__title" for="__nav_15_4">
+          <span class="md-nav__icon md-icon"></span>
+          Communication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encrypting-communication/" class="md-nav__link">
+        Encrypting communication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/tunneling-protocols/" class="md-nav__link">
+        Tunneling protocols
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encrypting-disk/" class="md-nav__link">
+        Encrypting disk
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/cryptanalysis/" class="md-nav__link">
+        Cryptanalysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16">
+          Cloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud" data-md-level="1">
+        <label class="md-nav__title" for="__nav_16">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/cloud-computing/" class="md-nav__link">
+        Cloud computing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/cloud-security/" class="md-nav__link">
+        Cloud security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/container-security/" class="md-nav__link">
+        Container security
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" type="checkbox" id="__nav_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_17">
+          Mobile platforms
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobile platforms" data-md-level="1">
+        <label class="md-nav__title" for="__nav_17">
+          <span class="md-nav__icon md-icon"></span>
+          Mobile platforms
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-hacking/" class="md-nav__link">
+        Mobile hacking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-attack-vectors/" class="md-nav__link">
+        Mobile attack vectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-attacks/" class="md-nav__link">
+        Mobile attacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18" type="checkbox" id="__nav_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_18">
+          IoT and OT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IoT and OT" data-md-level="1">
+        <label class="md-nav__title" for="__nav_18">
+          <span class="md-nav__icon md-icon"></span>
+          IoT and OT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18-iot-and-ot/iot-overview/" class="md-nav__link">
+        IoT overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18-iot-and-ot/iot-security/" class="md-nav__link">
+        IoT security
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19-exam-readiness/exam-readiness/" class="md-nav__link">
+        Exam readiness
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#common-ports-and-services-to-enumerate" class="md-nav__link">
+    Common ports and services to enumerate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration-techniques" class="md-nav__link">
+    Enumeration techniques
+  </a>
+  
+    <nav class="md-nav" aria-label="Enumeration techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-enumeration" class="md-nav__link">
+    Windows enumeration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-user-account-enumeration" class="md-nav__link">
+    Windows user account enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows user account enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-identifier-sid" class="md-nav__link">
+    Security Identifier (SID)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-user-account-enumeration-tools" class="md-nav__link">
+    Windows user account enumeration tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netbios-enumeration" class="md-nav__link">
+    NetBIOS enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="NetBIOS enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#netbios-enumeration-tools" class="md-nav__link">
+    NetBIOS enumeration tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snmp-enumeration" class="md-nav__link">
+    SNMP enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="SNMP enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snmp-enumeration-tools" class="md-nav__link">
+    SNMP enumeration tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-enumeration" class="md-nav__link">
+    LDAP enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="LDAP enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    LDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-enumeration-countermeasures" class="md-nav__link">
+    LDAP enumeration countermeasures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-enumeration-tools" class="md-nav__link">
+    LDAP enumeration tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ntp-enumeration" class="md-nav__link">
+    NTP enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="NTP enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ntp" class="md-nav__link">
+    NTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ntp-enumeration-tools" class="md-nav__link">
+    NTP enumeration tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smtp-enumeration" class="md-nav__link">
+    SMTP enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="SMTP enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smtp" class="md-nav__link">
+    SMTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smtp-enumeration-through-smtp-commands" class="md-nav__link">
+    SMTP enumeration through SMTP commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smtp-enumeration-through-tools" class="md-nav__link">
+    SMTP enumeration through tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brute-forcing-active-directory" class="md-nav__link">
+    Brute forcing Active Directory
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="enumeration-overview">Enumeration overview</h1>
+<ul>
+<li>Actively engage a system and query it for information.</li>
+<li>Used to discover vulnerabilities and then exploit them.</li>
+<li>Information collected include routing tables, users and groups, machine names, network resources.</li>
+</ul>
+<h2 id="common-ports-and-services-to-enumerate">Common ports and services to enumerate</h2>
+<ul>
+<li>📝 List of most commonly enumerated services and their ports</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Protocol</th>
+<th>Service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25</td>
+<td>TCP</td>
+<td><a href="#smtp-enumeration">SMTP (Simple Mail Transfer Protocol)</a></td>
+</tr>
+<tr>
+<td>53</td>
+<td>TCP/UDP</td>
+<td><a href="../dns-enumeration/">DNS (Domain Name System)</a></td>
+</tr>
+<tr>
+<td>135</td>
+<td>TCP/UDP</td>
+<td>Microsoft RPC Endpoint Mapper</td>
+</tr>
+<tr>
+<td>137</td>
+<td>UDP</td>
+<td><a href="#netbios-enumeration">NetBIOS Name Service</a></td>
+</tr>
+<tr>
+<td>139</td>
+<td>TCP</td>
+<td><a href="#netbios-enumeration">SMB over NetBIOS</a></td>
+</tr>
+<tr>
+<td>161</td>
+<td>UDP</td>
+<td><a href="#snmp-enumeration">SNMP (Simple Network Management Protocol)</a></td>
+</tr>
+<tr>
+<td>162</td>
+<td>TCP/UDP</td>
+<td><a href="#snmp-enumeration">SNMP Trap</a></td>
+</tr>
+<tr>
+<td>389</td>
+<td>TCP/UDP</td>
+<td><a href="#ldap-enumeration">LDAP</a></td>
+</tr>
+<tr>
+<td>445</td>
+<td>TCP/UDP</td>
+<td>SMB over TCP</td>
+</tr>
+<tr>
+<td>465</td>
+<td>TCP</td>
+<td><a href="#smtp-enumeration">SMTP over TLS</a></td>
+</tr>
+<tr>
+<td>500</td>
+<td>UDP</td>
+<td>ISAKMP/<a href="../../15-cryptography/tunneling-protocols/#ike-internet-key-exchange">IKE</a></td>
+</tr>
+<tr>
+<td>514</td>
+<td>UDP</td>
+<td> Syslog, used for system logging</td>
+</tr>
+<tr>
+<td>587</td>
+<td>TCP</td>
+<td><a href="#smtp-enumeration">SMTP over <strong>optionally</strong>* STARTTLS</a></td>
+</tr>
+<tr>
+<td>1433</td>
+<td>TCP/UDP</td>
+<td> Microsoft SQL Server</td>
+</tr>
+<tr>
+<td>3268</td>
+<td>TCP/UDP</td>
+<td>Global Catalog Service</td>
+</tr>
+<tr>
+<td>5060, 5061</td>
+<td>TCP/UDP</td>
+<td>SIP (Session Initiation Protocol)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Read more on <a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.txt">IANA ports list</a></li>
+<li>See also • <a href="../../07-malware/malware-analysis/#port-monitoring">Port monitoring | Malware analysis</a> • <a href="../../03-scanning-networks/scanning-networks-overview/#common-ports-to-scan">Common ports to scan | Scanning networks</a></li>
+</ul>
+<h2 id="enumeration-techniques">Enumeration techniques</h2>
+<ul>
+<li>Extracting user names using email ID's</li>
+<li>E.g. if the e-mail is tom.john@smith.com then tom.john is probably the user name</li>
+<li>Extract information using the default password</li>
+<li>Identifying OS would tell the default password</li>
+<li>If no one has changed it can be used to gather more information.</li>
+<li><a href="../dns-enumeration/">DNS enumeration</a></li>
+</ul>
+<h3 id="windows-enumeration">Windows enumeration</h3>
+<ul>
+<li><strong>Enumerating all shares</strong></li>
+<li><code>net share</code> or <code>net view \\serverName /all</code></li>
+<li><strong>Enumerating machine configuration through null sessions</strong></li>
+<li>Null sessions allow for enumeration of Windows machines to access information about the machine configuration.</li>
+<li>E.g. <code>net use \\target\ipc$ "" /user: "</code></li>
+<li><strong>Configurable services and server/workstation settings</strong></li>
+<li><code>net config</code></li>
+</ul>
+<h3 id="windows-user-account-enumeration">Windows user account enumeration</h3>
+<h4 id="security-identifier-sid">Security Identifier (SID)</h4>
+<ul>
+<li>A <strong>subject</strong> can access an <strong>object</strong> with given <strong>permissions</strong></li>
+<li><strong>Subject</strong> (who)</li>
+<li>Windows internally identifies entities as "Security Principals" also known as "Subject"s</li>
+<li>E.g. user accounts, groups, computers and services</li>
+<li>Subjects are assigned SID (Security Identifier) by the system</li>
+<li>E.g. S-<strong>1</strong>-<strong>5</strong>-<strong>21</strong>-1852694824-1489621752-332472329-<strong>500</strong></li>
+<li>📝 Format: <code>S-&lt;revision-level&gt;-&lt;authority-id&gt;-&lt;first-subauthority&gt;-&lt;o-N subauthorities&gt;-&lt;relative identifier(RID)&gt;</code></li>
+<li><strong>Authority ID</strong><ul>
+<li>0 - <code>SECURITY_NULL_SID_AUTHORITY</code> - null group or nobody</li>
+<li>1 - <code>SECURITY_WORLD_SID_AUTHORITY</code> - account Everybody</li>
+<li>2 - <code>SECURITY_LOCAL_SID_AUTHORITY</code> - group account Local (logged in users)</li>
+<li>3 - <code>SECURITY_CREATOR_SID_AUTHORITY</code> - Creator Owner</li>
+<li>5 - <code>SECURITY_NT_AUTHORITY</code> - Created by OS</li>
+<li>There are <a href="https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/security-identifiers-in-windows">many more</a></li>
+</ul>
+</li>
+<li><strong>Sub Authority ID</strong><ul>
+<li>5 - For applications that run under a specific session</li>
+<li>6 - When a process authenticates as a service</li>
+<li>21 - For SIDs that are not universal but has local significance</li>
+<li>32 - Identifies built-in SIDs</li>
+<li>80 - Identifies services' SIDs</li>
+</ul>
+</li>
+<li><strong>Relative identifier (RID)</strong><ul>
+<li>500 - Administrator</li>
+<li>501 - Guest</li>
+</ul>
+</li>
+</ul>
+<h4 id="windows-user-account-enumeration-tools">Windows user account enumeration tools</h4>
+<ul>
+<li><code>user2sid</code> and <code>sid2touser</code>: Brings SID value for a given account name and vice versa</li>
+<li>E.g. <code>user2sid \\SVR1 Guest</code></li>
+<li>Getting SID allows enumeration of accounts/groups by changing RID<ul>
+<li>E.g. <code>sid2user \\SVR1 5 21 1928525985 232339646 3462474693 501</code></li>
+<li>Returns like <code>Name is Guest</code>, <code>Domain is DEMO</code>, <code>Type of SID is SidTypeUser</code></li>
+<li>Syntax: <code>sid2user [\computer_name] authority subauthority_1 …</code></li>
+</ul>
+</li>
+<li><a href="https://vidstromlabs.com/freetools/dumpusers/"><code>dumpusers</code></a>: All-in-one tool to dump account names and information</li>
+<li><a href="https://packetstormsecurity.com/files/download/25056/getacct003.zip"><code>GetAcct</code></a>: Can dump account information as CSV file.</li>
+<li>From <a href="https://www.systemtools.com/index.html">SystemTools</a>:</li>
+<li><a href="https://www.systemtools.com/somarsoft/index.html">DumpSec</a>: lists all users and the groups they are in</li>
+<li><a href="https://www.systemtools.com/hyena/download.htm?gclid=EAIaIQobChMIq9udy-mF7QIVlB4YCh1yUgPoEAAYASAAEgK8T_D_BwE">Hyena</a> dumps shares and user login names for Windows domain controllers and servers on same network.</li>
+<li><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/psgetsid">PsGetSid</a>: Translates SIDs to their display name and vice versa</li>
+</ul>
+<h3 id="netbios-enumeration">NetBIOS enumeration</h3>
+<ul>
+<li>NetBIOS (Network Basic Input/Output System) is a unique name of a Windows machine.</li>
+<li>📝 Allow computers</li>
+<li>to communicate with others at the same time</li>
+<li>to share files and printers</li>
+<li>Uses SMB (service message block) protocol</li>
+<li>Network file sharing protocol.</li>
+<li>🤗 Was targeted by <a href="https://en.wikipedia.org/wiki/WannaCry_ransomware_attack">WannaCry ransomware</a> who traversed the network and injected hosts.</li>
+<li>Easily exploitable, often used as one of the first scans.</li>
+<li>Helps to collect: • System name • Username • Domain • Printers • Available shares</li>
+</ul>
+<h4 id="netbios-enumeration-tools">NetBIOS enumeration tools</h4>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nbtstat">nbtstat</a></li>
+<li>Proprietary Windows diagnostic tool for NetBIOS over TCP/IP.</li>
+<li><code>nbtstat -a &lt;IP or hostname&gt;</code>: shows NetBIOS names</li>
+<li><code>net view &lt;IP or hostname&gt;</code> prints available shares such as printers.</li>
+<li><a href="http://manpages.ubuntu.com/manpages/trusty/man1/smb-nat.1.html">smb-nat</a></li>
+<li>NetBIOS Auditing Tool)</li>
+<li><code>nat -o &lt;output file&gt; -u &lt;user-list&gt; -p &lt;password-list&gt; &lt;ip/range&gt;</code> allows you to brute force different usernames and passwords for administrative shares.</li>
+<li><a href="https://github.com/kkuehl/winfingerprint">WinFingerPrint</a></li>
+<li>Windows enumeration tool</li>
+<li>Scan machines in LAN and returns shares, disk information, services, users (SID), groups..</li>
+</ul>
+<h3 id="snmp-enumeration">SNMP enumeration</h3>
+<ul>
+<li>Also known as <strong><em>SNMP walking</em></strong></li>
+<li>SNMP stands for Simple Network Management Protocol.</li>
+<li>Used for</li>
+<li>monitoring networking equipment</li>
+<li>remotely modifying settings and configs on the equipment</li>
+<li>Was developed for routers and switches (1988)</li>
+<li>Extended for linux/windows machines, printers, sensors, power supplies and more...</li>
+<li>Two kind of <strong>community strings</strong>:</li>
+<li>Read community string: read-only.<ul>
+<li>You can collect information such as</li>
+<li>System name, system uptime, network settings, CPU usage level etc.</li>
+</ul>
+</li>
+<li>Read/write community string: read-write (private) to edit configurations</li>
+<li>💡 SNMPv3 encrypts the community strings</li>
+<li>Consists of a <strong>manager</strong> and an <strong>agent</strong></li>
+<li><strong>Agent</strong>s are embedded into network devices.<ul>
+<li>Agents send their information to manager using port 162.</li>
+<li>Data messages are called traps.</li>
+</ul>
+</li>
+<li><strong>Manager</strong> is installed on a computer.<ul>
+<li>Needs two passwords to access and configure the agents:</li>
+<li>read community string</li>
+<li>read/write community string</li>
+</ul>
+</li>
+<li><strong>Object identifier (OID)</strong></li>
+<li>Any device that can be monitored has an OID.</li>
+<li>E.g. <code>1.3.6.1.2.1.2.2.1.8</code></li>
+<li><strong>Management Information Base (MIB)</strong></li>
+<li>Text-file that translates numerical OIDs to word-based OIDs.<ul>
+<li>E.g. <code>SYNOLOGY-SYSTEM-MIB::temperature.0</code></li>
+</ul>
+</li>
+<li>You can collect information CPU usage level, disk usage level, network settings using vendor-specific OIDs.</li>
+<li>Version 1, 2: (❗️ insecure) No encryption, only "community string" and no encryption</li>
+<li>Version 3: Username + password and encryption</li>
+</ul>
+<h4 id="snmp-enumeration-tools">SNMP enumeration tools</h4>
+<ul>
+<li><a href="https://ezfive.com/snmpsoft-tools/snmp-walk/"><strong><code>snmpwalk</code></strong></a></li>
+<li>Enumerates ports in SNMP agent and finds out UDP port sending traffic to manager.</li>
+<li><code>snmpwalk -c public -v1 &lt;agent IP address&gt;</code></li>
+<li>Starts listening to the port.</li>
+<li><strong><code>snmp-check</code></strong></li>
+<li>You can find out the version using <code>snmp-check &lt;IP address&gt; -v &lt;version 1 or 2c&gt;</code><ul>
+<li>Gives much more information like routing tables, storage information, users etc.</li>
+</ul>
+</li>
+<li><a href="https://ezfive.com/snmpsoft-tools/snmp-get/"><strong><code>snmp-get</code></strong></a></li>
+<li>Retrieve specific OID information from target using <code>-o</code></li>
+<li>SNMP community string for SNMP v1/v2c.<ul>
+<li>E.g. <code>sysName.0</code> for system name</li>
+</ul>
+</li>
+<li>E.g. <code>snmpget -v 1 -c public system.sysName.0</code></li>
+</ul>
+<h3 id="ldap-enumeration">LDAP enumeration</h3>
+<ul>
+<li>See also <a href="#brute-forcing-active-directory">brute-forcing active directory</a></li>
+</ul>
+<h4 id="ldap">LDAP</h4>
+<ul>
+<li>LDAP stands for Lightweight Directory Access Protocol</li>
+<li>Used by on-premises Active Directory (Microsoft)</li>
+<li>📝 Hierarchical e.g. domain &gt; child-domains &gt; organizational units &gt; users / groups / computers.</li>
+<li>May return information about usernames, addresses, servers, and other sensitive information.</li>
+<li>could be utilized in a brute force or social engineering attacks.</li>
+</ul>
+<h4 id="ldap-enumeration-countermeasures">LDAP enumeration countermeasures</h4>
+<ul>
+<li>Use over encrypted and secure protocols e.g. by e.g.</li>
+<li><strong>LDAP over SSL/TLS</strong><ul>
+<li>Also known as <strong>LDAPS</strong></li>
+<li>SSL/TLS is negotiated before LDAP protocol begins.</li>
+</ul>
+</li>
+<li><strong>LDAP over StartTLS</strong><ul>
+<li>STARTTLS is a way to take an existing insecure connection and upgrade it to a secure connection using TLS.</li>
+<li>Communication is only encrypted after the connection is established.</li>
+</ul>
+</li>
+<li>Use NTLM or Basic authentication</li>
+<li>Select a username different from your email address</li>
+</ul>
+<h4 id="ldap-enumeration-tools">LDAP enumeration tools</h4>
+<ul>
+<li><a href="https://www.jxplorer.org/">Jxplorer</a></li>
+<li><a href="https://www.ldapsoft.com">LDAP Admin Tool</a></li>
+<li><a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771022(v=ws.11)">LDP.exe</a></li>
+<li><a href="https://www.ldapadministrator.com/">Softerra LDAP Administrator</a></li>
+<li>📝 <a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/gg651155(v=ws.11)"><code>net use</code></a> to show list of connected resources and logged-in user accounts.</li>
+</ul>
+<h3 id="ntp-enumeration">NTP enumeration</h3>
+<h4 id="ntp">NTP</h4>
+<ul>
+<li>📝 NTP (Network Time Protocol) is to synchronize computer clocks.</li>
+<li>E.g. machines in same domain in Active Directory must have same GMT clocks.</li>
+<li>Uses UDP 123</li>
+<li>Target accuracy</li>
+<li>10 ms over the public internet</li>
+<li>200 ms or better on a local area network</li>
+<li>🤗 Usually companies have authority of time-source on their on-premises, it synchronizes to internet and everything else synchronizes to it.</li>
+<li>Important for routers / switches to have logs with right timestamps.</li>
+<li>Attackers query NTP for</li>
+<li>List of hosts connected to NTP server</li>
+<li>Clients IP addresses, system names and operating systems.</li>
+<li>Internal IP addresses can be acquired if the NTP server is on the DMZ</li>
+</ul>
+<h4 id="ntp-enumeration-tools">NTP enumeration tools</h4>
+<ul>
+<li><a href="https://www.eecis.udel.edu/~mills/ntp/html/ntptrace.html"><code>ntptrace</code></a>: traces NTP servers back to the primary source.</li>
+<li><a href="http://doc.ntp.org/4.1.2/ntpdc.htm"><code>ntpdc</code></a>: monitors operation of the NTP daemon, ntpd</li>
+<li><a href="http://doc.ntp.org/4.1.0/ntpq.htm"><code>ntpq</code></a>: monitors NTP daemon ntpd operations and determines performance.</li>
+<li>Other tools include: • NTP Time Server Monitor • NTP server Scanner • Nmap • Wireshark • AtomSync • NTPQuery, • PresenTense NTP Auditor • PresenTense Time Server • PresenTense Time Client • Lan Time Analyser...</li>
+</ul>
+<h3 id="smtp-enumeration">SMTP enumeration</h3>
+<h4 id="smtp">SMTP</h4>
+<ul>
+<li>SMTP = Simple Mail Transfer Protocol (port: 25)</li>
+<li>Protocol used for sending/receiving e-mails.</li>
+<li>Used by clients talk to SMTP servers</li>
+<li>Used also by SMTP servers to talk to other servers.</li>
+<li>Secure/encrypted protocols include:</li>
+<li><strong>SMTPS</strong> is SMTP over TLS (port: 587)<ul>
+<li>🤗 Like HTTPS is HTTP over TLS</li>
+</ul>
+</li>
+<li>SMTP can also run with STARTTLS (port: 467)<ul>
+<li>Compared to running over TLS, it encrypts communication AFTER the communication is established.</li>
+<li>STARTTLS is also known as <strong>opportunistic TLS</strong> as it would fall back to unencrypted communication if server does not support it.</li>
+</ul>
+</li>
+<li>See <a href="../dns-enumeration/#dns-records">MX records</a> to find SMTP servers</li>
+<li>Allows to validate e-mail addresses to ensure they exist</li>
+<li>🤗 One another: Go to provider → try creating account with that e-mail.</li>
+<li>🤗 Large collection of e-mails can be sold or used for phishing.</li>
+<li>🤗 Many e-mail senders (e.g. AWS Simple Email Service) blocks you if you send e-mails that will not reach the targets.<ul>
+<li>One idea is to create fake accounts in cloud providers → ask to increase soft limits → enumerate per accounts</li>
+</ul>
+</li>
+</ul>
+<h4 id="smtp-enumeration-through-smtp-commands">SMTP enumeration through SMTP commands</h4>
+<ul>
+<li><code>VRFY</code>: validates e-mail address that actually exists</li>
+<li><code>EXPN</code>: tells the actual delivery address of aliases and mailing lists</li>
+<li><code>RCPT TO</code>: Defines recipients of the messages</li>
+<li>❗ Some admins may turn off <code>VRFY</code> and <code>EXPN</code>, but not <code>RCPT TO</code> (or no one can receive e-mail)</li>
+</ul>
+<h4 id="smtp-enumeration-through-tools">SMTP enumeration through tools</h4>
+<ul>
+<li><a href="https://www.netscantools.com/nstpro_smtp_server_tests.html">NetScanTools Pro SMTP Server Tests Tool Description</a></li>
+<li>Used to perform tests sending e-mails</li>
+<li><a href="https://github.com/pentestmonkey/smtp-user-enum"><code>smtp-user-enum</code></a></li>
+<li>Enumerates OS-level user accounts on Solaris</li>
+<li>Inspects responses to <code>VRFY</code>, <code>EXPN</code> and <code>RCPT TO</code></li>
+<li><img alt="smtp-user-enum example" src="../img/smtp-user-enum.png" /><ul>
+<li><code>stmpy-user-enum -M &lt;command&gt; -U &lt;list of emails&gt; -t &lt;SMTP server&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="brute-forcing-active-directory">Brute forcing Active Directory</h3>
+<ol>
+<li>Get admin user with <a href="#security-identifier-sid">SID 500</a></li>
+<li><code>Get-ADUser -Filter * | where { $_.SID -like "*-500" }</code></li>
+<li>Brute-force its credentials</li>
+<li>E.g. if user is <code>admin@cloudarchitecture.io</code>:<ul>
+<li><code>net use \\%computername% "PasswordTest1" /u:admin@cloudarchitecture.io</code></li>
+<li><code>net use \\%computername% "PasswordTest2" /u:admin@cloudarchitecture.io</code></li>
+<li>...</li>
+</ul>
+</li>
+</ol>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../03-scanning-networks/banner-grabbing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Banner grabbing" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Banner grabbing
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../dns-enumeration/" class="md-footer__link md-footer__link--next" aria-label="Next: DNS enumeration" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              DNS enumeration
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+    
+  </body>
+</html>

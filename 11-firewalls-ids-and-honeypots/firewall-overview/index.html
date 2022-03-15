@@ -1,0 +1,3252 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>Firewall overview - CEH-IN-BULLET-POINTS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Barlow";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#firewall-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CEH-IN-BULLET-POINTS" class="md-header__button md-logo" aria-label="CEH-IN-BULLET-POINTS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CEH-IN-BULLET-POINTS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Firewall overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CEH-IN-BULLET-POINTS" class="md-nav__button md-logo" aria-label="CEH-IN-BULLET-POINTS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    CEH-IN-BULLET-POINTS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Information security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Information security" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Information security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/information-security-overview/" class="md-nav__link">
+        Information security overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/security-threats-and-attacks/" class="md-nav__link">
+        Security threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_3" type="checkbox" id="__nav_1_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_3">
+          Information security controls
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Information security controls" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Information security controls
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/information-security-controls/" class="md-nav__link">
+        Information security controls overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/risk-management/" class="md-nav__link">
+        Risk management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/incident-management/" class="md-nav__link">
+        Incident management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/network-security/" class="md-nav__link">
+        Network security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/security-policies/" class="md-nav__link">
+        Security policies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/physical-security/" class="md-nav__link">
+        Physical security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/data-leakage-backup-and-recovery/" class="md-nav__link">
+        Data leakage backup and recovery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/identity-access-management-%28iam%29/" class="md-nav__link">
+        Identity access management (IAM)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/threat-intelligence-and-forensics/" class="md-nav__link">
+        Threat intelligence and forensics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/laws-standards-and-regulations/" class="md-nav__link">
+        Laws, standards and regulations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Hacking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hacking" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Hacking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/hacker-types/" class="md-nav__link">
+        Hacker types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/hacking-stages/" class="md-nav__link">
+        Hacking stages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Penetration testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Penetration testing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Penetration testing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/penetration-testing/" class="md-nav__link">
+        Penetration testing overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-introduction/penetration-testing-phases/" class="md-nav__link">
+        Penetration testing phases
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Footprinting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Footprinting" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Footprinting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/footprinting-overview/" class="md-nav__link">
+        Footprinting overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/search-engines-and-online-resources/" class="md-nav__link">
+        Search engines and online resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/whois-geoiplocation-and-dns-interrogation/" class="md-nav__link">
+        WHOIS, GeoIpLocation and DNS interrogation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/email-footprinting/" class="md-nav__link">
+        Email footprinting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/website-footprinting/" class="md-nav__link">
+        Website footprinting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-footprinting/network-footprinting/" class="md-nav__link">
+        Network footprinting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Scanning networks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Scanning networks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Scanning networks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-networks-overview/" class="md-nav__link">
+        Scanning networks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/tcpip-basics/" class="md-nav__link">
+        TCP/IP basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-tools/" class="md-nav__link">
+        Scanning tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/scanning-techniques/" class="md-nav__link">
+        Scanning techniques
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/bypassing-ids-and-firewall/" class="md-nav__link">
+        Bypassing IDS and firewall
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scanning-networks/banner-grabbing/" class="md-nav__link">
+        Banner grabbing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Enumeration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Enumeration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Enumeration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-enumeration/enumeration-overview/" class="md-nav__link">
+        Enumeration Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-enumeration/dns-enumeration/" class="md-nav__link">
+        DNS enumeration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Vulnerabilities
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vulnerabilities" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Vulnerabilities
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/vulnerability-analysis/" class="md-nav__link">
+        Vulnerability analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/common-vulnerabilities/" class="md-nav__link">
+        Common vulnerabilities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-vulnerabilities/automated-penetration-testing-tools/" class="md-nav__link">
+        Automated penetration testing tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          System hacking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="System hacking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          System hacking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Cracking passwords
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cracking passwords" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cracking passwords
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/cracking-passwords-overview/" class="md-nav__link">
+        Cracking passwords overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/microsoft-authentication/" class="md-nav__link">
+        Microsoft authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/password-cracking-tools/" class="md-nav__link">
+        Password cracking tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/linux-basics/" class="md-nav__link">
+        Linux basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/escalating-privileges/" class="md-nav__link">
+        Escalating privileges
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/executing-applications/" class="md-nav__link">
+        Executing applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/hiding-files/" class="md-nav__link">
+        Hiding files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-system-hacking/covering-tracks/" class="md-nav__link">
+        Covering tracks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Malware overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Malware overview" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Malware overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/malware-overview/" class="md-nav__link">
+        Malware overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/trojans/" class="md-nav__link">
+        Trojans
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/viruses/" class="md-nav__link">
+        Viruses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-malware/malware-analysis/" class="md-nav__link">
+        Malware analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Sniffing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sniffing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Sniffing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/sniffing-overview/" class="md-nav__link">
+        Sniffing overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/sniffing-tools/" class="md-nav__link">
+        Sniffing tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Sniffing attacks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sniffing attacks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Sniffing attacks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/sniffing-attacks-overview/" class="md-nav__link">
+        Sniffing attacks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/spoofing-attacks/" class="md-nav__link">
+        Spoofing attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-sniffing/arp-poisoning/" class="md-nav__link">
+        ARP poisoning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Wireless networks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wireless networks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Wireless networks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-networks-overview/" class="md-nav__link">
+        Wireless networks overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/aaa-protocols/" class="md-nav__link">
+        AAA protocols
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-threats-and-attacks/" class="md-nav__link">
+        Wireless threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/wireless-security-tools/" class="md-nav__link">
+        Wireless security tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-wireless-networks/bluetooth/" class="md-nav__link">
+        Bluetooth
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Social engineering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Social engineering" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Social engineering
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-social-engineering/social-engineering-overview/" class="md-nav__link">
+        Social engineering overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-social-engineering/social-engineering-types/" class="md-nav__link">
+        Social engineering types
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Firewalls IDS and Honeypots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Firewalls IDS and Honeypots" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Firewalls IDS and Honeypots
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" type="checkbox" id="__nav_11_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_1">
+          Intrusion detection system (IDS)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Intrusion detection system (IDS)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          Intrusion detection system (IDS)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intrusion-detection-system-%28ids%29-overview/" class="md-nav__link">
+        Intrusion detection system (IDS) overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evading-ids/" class="md-nav__link">
+        Evading IDS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" type="checkbox" id="__nav_11_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_2">
+          Firewall
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Firewall" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Firewall
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Firewall overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Firewall overview
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#firewall-architecture" class="md-nav__link">
+    Firewall architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="Firewall architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-homed-firewalls" class="md-nav__link">
+    Multi-homed firewalls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dual-homed-firewalls" class="md-nav__link">
+    Dual-homed firewalls
+  </a>
+  
+    <nav class="md-nav" aria-label="Dual-homed firewalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bastion-hosts" class="md-nav__link">
+    Bastion hosts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screened-subnet-firewalls" class="md-nav__link">
+    Screened subnet firewalls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firewall-categories" class="md-nav__link">
+    Firewall categories
+  </a>
+  
+    <nav class="md-nav" aria-label="Firewall categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#software-vs-hardware-firewalls" class="md-nav__link">
+    Software vs Hardware firewalls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firewall-types-per-osi-layer" class="md-nav__link">
+    Firewall types per OSI Layer
+  </a>
+  
+    <nav class="md-nav" aria-label="Firewall types per OSI Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#packet-filtering-firewalls" class="md-nav__link">
+    Packet filtering firewalls
+  </a>
+  
+    <nav class="md-nav" aria-label="Packet filtering firewalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-control-lists-acls" class="md-nav__link">
+    Access Control Lists (ACLs)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packet-inspection" class="md-nav__link">
+    Packet inspection
+  </a>
+  
+    <nav class="md-nav" aria-label="Packet inspection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#port-based-classification" class="md-nav__link">
+    Port-based classification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qos-markers-dscp" class="md-nav__link">
+    QoS markers (DSCP)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statistical-traffic-classification" class="md-nav__link">
+    Statistical traffic classification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-packet-inspection-dpi" class="md-nav__link">
+    Deep Packet Inspection (DPI)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stateful-firewalls" class="md-nav__link">
+    Stateful firewalls
+  </a>
+  
+    <nav class="md-nav" aria-label="Stateful firewalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zone-based-firewall" class="md-nav__link">
+    Zone-based firewall
+  </a>
+  
+    <nav class="md-nav" aria-label="Zone-based firewall">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#firewall-zone" class="md-nav__link">
+    Firewall zone
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewalld" class="md-nav__link">
+    firewalld
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-level-gateway-firewalls" class="md-nav__link">
+    Circuit level gateway firewalls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-level-firewalls" class="md-nav__link">
+    Application level firewalls
+  </a>
+  
+    <nav class="md-nav" aria-label="Application level firewalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#web-application-firewall-waf" class="md-nav__link">
+    Web Application Firewall (WAF)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-level-vs-network-level-firewalls" class="md-nav__link">
+    Application level vs Network level Firewalls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stateful-multilayer-inspection-firewall" class="md-nav__link">
+    Stateful multilayer inspection firewall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-address-translation-nat" class="md-nav__link">
+    Network Address Translation (NAT)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-private-network-vpn" class="md-nav__link">
+    Virtual Private Network (VPN)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evading-firewalls/" class="md-nav__link">
+        Evading firewalls
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../honeypot/" class="md-nav__link">
+        Honeypot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Web servers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web servers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Web servers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-web-servers/hacking-web-servers/" class="md-nav__link">
+        Hacking web servers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-web-servers/web-server-threats-and-attacks/" class="md-nav__link">
+        Web server threats and attacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          Web applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web applications" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          Web applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/hacking-web-applications/" class="md-nav__link">
+        Hacking web applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/owasp-top-10-threats/" class="md-nav__link">
+        OWASP top 10 threats
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/denial-of-service/" class="md-nav__link">
+        Denial of service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-web-applications/session-hijacking/" class="md-nav__link">
+        Session hijacking
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          SQL injection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SQL injection" data-md-level="1">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          SQL injection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-sql-injection/sql-injection-overview/" class="md-nav__link">
+        SQL injection overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-sql-injection/sql-injection-types/" class="md-nav__link">
+        SQL injection types
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          Cryptography
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cryptography" data-md-level="1">
+        <label class="md-nav__title" for="__nav_15">
+          <span class="md-nav__icon md-icon"></span>
+          Cryptography
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/cryptography-overview/" class="md-nav__link">
+        Cryptography overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encryption-algorithms/" class="md-nav__link">
+        Encryption algorithms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/hashing-algorithms/" class="md-nav__link">
+        Hashing algorithms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_4" type="checkbox" id="__nav_15_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15_4">
+          Communication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Communication" data-md-level="2">
+        <label class="md-nav__title" for="__nav_15_4">
+          <span class="md-nav__icon md-icon"></span>
+          Communication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encrypting-communication/" class="md-nav__link">
+        Encrypting communication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/tunneling-protocols/" class="md-nav__link">
+        Tunneling protocols
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/encrypting-disk/" class="md-nav__link">
+        Encrypting disk
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-cryptography/cryptanalysis/" class="md-nav__link">
+        Cryptanalysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16">
+          Cloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud" data-md-level="1">
+        <label class="md-nav__title" for="__nav_16">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/cloud-computing/" class="md-nav__link">
+        Cloud computing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/cloud-security/" class="md-nav__link">
+        Cloud security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-cloud-computing/container-security/" class="md-nav__link">
+        Container security
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" type="checkbox" id="__nav_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_17">
+          Mobile platforms
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobile platforms" data-md-level="1">
+        <label class="md-nav__title" for="__nav_17">
+          <span class="md-nav__icon md-icon"></span>
+          Mobile platforms
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-hacking/" class="md-nav__link">
+        Mobile hacking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-attack-vectors/" class="md-nav__link">
+        Mobile attack vectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-mobile-platforms/mobile-attacks/" class="md-nav__link">
+        Mobile attacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18" type="checkbox" id="__nav_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_18">
+          IoT and OT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IoT and OT" data-md-level="1">
+        <label class="md-nav__title" for="__nav_18">
+          <span class="md-nav__icon md-icon"></span>
+          IoT and OT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18-iot-and-ot/iot-overview/" class="md-nav__link">
+        IoT overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18-iot-and-ot/iot-security/" class="md-nav__link">
+        IoT security
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19-exam-readiness/exam-readiness/" class="md-nav__link">
+        Exam readiness
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#firewall-architecture" class="md-nav__link">
+    Firewall architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="Firewall architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-homed-firewalls" class="md-nav__link">
+    Multi-homed firewalls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dual-homed-firewalls" class="md-nav__link">
+    Dual-homed firewalls
+  </a>
+  
+    <nav class="md-nav" aria-label="Dual-homed firewalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bastion-hosts" class="md-nav__link">
+    Bastion hosts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screened-subnet-firewalls" class="md-nav__link">
+    Screened subnet firewalls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firewall-categories" class="md-nav__link">
+    Firewall categories
+  </a>
+  
+    <nav class="md-nav" aria-label="Firewall categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#software-vs-hardware-firewalls" class="md-nav__link">
+    Software vs Hardware firewalls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firewall-types-per-osi-layer" class="md-nav__link">
+    Firewall types per OSI Layer
+  </a>
+  
+    <nav class="md-nav" aria-label="Firewall types per OSI Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#packet-filtering-firewalls" class="md-nav__link">
+    Packet filtering firewalls
+  </a>
+  
+    <nav class="md-nav" aria-label="Packet filtering firewalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-control-lists-acls" class="md-nav__link">
+    Access Control Lists (ACLs)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packet-inspection" class="md-nav__link">
+    Packet inspection
+  </a>
+  
+    <nav class="md-nav" aria-label="Packet inspection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#port-based-classification" class="md-nav__link">
+    Port-based classification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qos-markers-dscp" class="md-nav__link">
+    QoS markers (DSCP)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statistical-traffic-classification" class="md-nav__link">
+    Statistical traffic classification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-packet-inspection-dpi" class="md-nav__link">
+    Deep Packet Inspection (DPI)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stateful-firewalls" class="md-nav__link">
+    Stateful firewalls
+  </a>
+  
+    <nav class="md-nav" aria-label="Stateful firewalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zone-based-firewall" class="md-nav__link">
+    Zone-based firewall
+  </a>
+  
+    <nav class="md-nav" aria-label="Zone-based firewall">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#firewall-zone" class="md-nav__link">
+    Firewall zone
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewalld" class="md-nav__link">
+    firewalld
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-level-gateway-firewalls" class="md-nav__link">
+    Circuit level gateway firewalls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-level-firewalls" class="md-nav__link">
+    Application level firewalls
+  </a>
+  
+    <nav class="md-nav" aria-label="Application level firewalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#web-application-firewall-waf" class="md-nav__link">
+    Web Application Firewall (WAF)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-level-vs-network-level-firewalls" class="md-nav__link">
+    Application level vs Network level Firewalls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stateful-multilayer-inspection-firewall" class="md-nav__link">
+    Stateful multilayer inspection firewall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-address-translation-nat" class="md-nav__link">
+    Network Address Translation (NAT)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-private-network-vpn" class="md-nav__link">
+    Virtual Private Network (VPN)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="firewall-overview">Firewall overview</h1>
+<ul>
+<li>Monitors network traffic and allows or blocks traffic based on a defined set of rules</li>
+<li>Predefined rules ensure only allowed incoming and outgoing traffic can pass through.</li>
+<li>Gateway/filter between two networks usually between private and public (internet)</li>
+</ul>
+<h2 id="firewall-architecture">Firewall architecture</h2>
+<h3 id="multi-homed-firewalls">Multi-homed firewalls</h3>
+<ul>
+<li>Also known as <strong><em>multi-homed hosts</em></strong>, <strong><em>multihomed hosts</em></strong>, <strong><em>multi homed hosts</em></strong>, <strong><em>multi homed firewalls</em></strong> or <strong><em>multihomed firewalls</em></strong>.</li>
+<li>📝 A host / firewall that has more than single network interface (NIC)</li>
+<li>Each interface are connected to separate network segments</li>
+</ul>
+<h3 id="dual-homed-firewalls">Dual-homed firewalls</h3>
+<ul>
+<li>Dual-home can be a proxy, gateway, firewall etc.</li>
+<li>A special case of <a href="#bastion-hosts">bastion hosts</a>.</li>
+<li>Allows them to transfer data between the two networks</li>
+<li>Has two interfaces</li>
+<li>External or public, usually to untrusted network such as Internet</li>
+<li>Internal or private, usually to trusted network such as Intranet</li>
+<li><strong>Screened Host</strong></li>
+<li>Firewall architecture where two filters are used</li>
+<li><img alt="Screened host firewall architecture" src="../img/screened-host-firewall.png" /></li>
+</ul>
+<h4 id="bastion-hosts">Bastion hosts</h4>
+<ul>
+<li>Mediates traffic between inside and outside networks</li>
+<li>Designed and configured (hardened) to withstand attacks</li>
+<li>Usually hosts a single service e.g. a proxy server</li>
+</ul>
+<h3 id="screened-subnet-firewalls">Screened subnet firewalls</h3>
+<ul>
+<li>Screen subnet is also known as <strong>DMZ</strong> or <strong>perimeter network</strong>.</li>
+<li>Used to secure servers that are accessible from the internet.</li>
+<li>Consists of three zones:</li>
+<li>External (e.g. to internet)</li>
+<li>📝 Demilitarized Zone (DMZ)<ul>
+<li>Placed in-between internal (trusted) and external (untrusted) network</li>
+<li>Usually where bastions are placed</li>
+</ul>
+</li>
+<li>Private (to internal network e.g. intranet)</li>
+<li><img alt="Screened subnet firewall architecture" src="../img/screened-subnet-firewall.png" /></li>
+<li>Two routers</li>
+<li>External router separating traffic from a perimeter network (DMZ)</li>
+<li>Internal router separating perimeter from internal network</li>
+<li>Can be achieved through either</li>
+<li>Single firewall with three interfaces<ul>
+<li>See also <a href="#zone-based-firewall">zone-based firewall</a></li>
+</ul>
+</li>
+<li>Three different firewalls<ul>
+<li>💡 Better as compromising one won't compromise all</li>
+</ul>
+</li>
+</ul>
+<h2 id="firewall-categories">Firewall categories</h2>
+<ul>
+<li><strong>Hardware Firewall</strong></li>
+<li>Device placed on the network's perimeter</li>
+<li>Uses packet filtering technique to filter the traffic</li>
+<li>Can be a standalone device or part of a router</li>
+<li><strong>Software Firewall</strong></li>
+<li>Filters traffic on the installed machine</li>
+<li>Protects its host from unauthorized access, trojans, viruses, and worms.</li>
+</ul>
+<h3 id="software-vs-hardware-firewalls">Software vs Hardware firewalls</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th> Hardware firewall</th>
+<th> Software firewall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Price</td>
+<td>More expensive</td>
+<td>Cheaper</td>
+</tr>
+<tr>
+<td>Maintainability</td>
+<td>Hard</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td> Faster response time</td>
+<td> Slower response times</td>
+</tr>
+<tr>
+<td> Interference</td>
+<td>Minimal, can easily remove/replace etc.</td>
+<td> Difficult to uninstall</td>
+</tr>
+</tbody>
+</table>
+<h2 id="firewall-types-per-osi-layer">Firewall types per OSI Layer</h2>
+<ul>
+<li>📝 Technologies used per OSI layer</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>OSI Layer</th>
+<th>Firewall technologies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7. Application</td>
+<td>• Virtual Private Network (VPN) • Application Proxies • Web Application Firewall (WAF) •  Request filtering based on headers and payload</td>
+</tr>
+<tr>
+<td>6. Presentation</td>
+<td>• Virtual Private Network (VPN)</td>
+</tr>
+<tr>
+<td>5. Session</td>
+<td>• Virtual Private Network (VPN) • Circuit-level gateway</td>
+</tr>
+<tr>
+<td>4. Transport</td>
+<td>• Virtual Private Network (VPN) • Packet filtering based on port numbers</td>
+</tr>
+<tr>
+<td>3. Network</td>
+<td>• Virtual Private Network (VPN) • Network Address Translation (NAT) • Packet filtering, Stateful multilayer inspection</td>
+</tr>
+<tr>
+<td> 2. Data Link</td>
+<td>• Virtual Private Network (VPN) • Packet filtering</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>📝 All vulnerabilities in one layer is independent of the other layer.</li>
+<li>E.g. cross-site scripting (application layer) vulnerable application would be vulnerable to it regardless of any protection on other layers.</li>
+<li>Also vulnerabilities exist at network layers would not be visible to a stateful</li>
+<li>💡 In most cases, you'd use both a L3 and an L7 firewall and the two complement each other.</li>
+<li>See also <a href="../../03-scanning-networks/tcpip-basics/#osi-model">OSI model</a></li>
+</ul>
+<h3 id="packet-filtering-firewalls">Packet filtering firewalls</h3>
+<ul>
+<li>Implemented on the Network Layer, usually part of routers</li>
+<li>Designed to analyze each packet individually to apply a set of filters</li>
+<li>📝 Examines the packets headers for source, destination, protocol, destination port, flags..</li>
+<li>Packet is dropped (not forwarded to its destination) if it does not comply with the predefined rules</li>
+<li>📝 Can be <a href="#stateful-firewalls">stateful</a> (mostly, newer) or stateless (older).</li>
+<li>Ineffective in preventing Web Application attacks as port 80 and 443 would not be blocked.</li>
+</ul>
+<h4 id="access-control-lists-acls">Access Control Lists (ACLs)</h4>
+<ul>
+<li>Usually packet filtering rules are defined using ACLs (access control lists)</li>
+<li>Known also <strong>Wireless Access Control List (WACL)</strong> as in wireless routers.</li>
+<li>📝 Type of rule-based access control</li>
+<li>📝 E.g.</li>
+<li>In Linux using <a href="https://en.wikipedia.org/wiki/Iptables">iptables</a>, disable all incoming SSH using <code>iptables -A INPUT -p tcp --dport 22 -j DROP</code></li>
+<li>In Windows it's controlled with <code>netsh advfirewall</code> (older: <code>netsh firewall</code>)</li>
+<li>E.g. on <a href="https://www.cisco.com/c/en/us/support/docs/security/ios-firewall/23602-confaccesslists.html">Cisco routers</a> using <code>access-list 101 deny tcp any host 100.100.100.1 eq 22</code><ul>
+<li>where <code>101</code> is sequence number that helps with ordering of the rules</li>
+<li>the lower the number is the higher priority it gets in the ordering</li>
+<li>ACL are processed in top down meaning if a condition is met all processing is stopped.</li>
+</ul>
+</li>
+</ul>
+<h4 id="packet-inspection">Packet inspection</h4>
+<h5 id="port-based-classification">Port-based classification</h5>
+<ul>
+<li>E.g. TCP 80 = HTTP</li>
+<li>Old way, today it's useless as assumptions can be wrong</li>
+</ul>
+<h5 id="qos-markers-dscp">QoS markers (DSCP)</h5>
+<ul>
+<li>Similar to port-based but based on QoS tags for prioritization</li>
+<li>Ignored as it's easy to cheat and forge</li>
+</ul>
+<h5 id="statistical-traffic-classification">Statistical traffic classification</h5>
+<ul>
+<li>Based on manual rules or ML (machine learning) dataset</li>
+<li>Hard to create a good dataset and poor accuracy for cases outside of the set</li>
+</ul>
+<h5 id="deep-packet-inspection-dpi">Deep Packet Inspection (DPI)</h5>
+<ul>
+<li>Inspecting packet payload</li>
+<li>Encrypted payload (e.g. HTTPS) ensures privacy and confidentiality</li>
+<li>Can see DNS query name, HTTP Host/Server fields and SSL/QUIC SNI (Server Name Indication)</li>
+<li>Important for cloud applications sharing same IPs</li>
+<li>Used in e.g. state censorship, and cloud-generation firewalls</li>
+<li>Tools: <a href="https://github.com/ntop/ntopng">ntop</a> that's based on <a href="https://github.com/ntop/nDPI">nDPI</a></li>
+</ul>
+<h4 id="stateful-firewalls">Stateful firewalls</h4>
+<ul>
+<li>Also known as <strong><em>stateful inspection firewalls</em></strong></li>
+<li>Stateful inspection is also known as <strong>dynamic packet filtering</strong></li>
+<li>Keeps state of open connections.</li>
+<li>When a packet arrives, its header is examined to determine if it belongs to an already established connection.</li>
+<li>If it belongs to a connection, then it's allowed to go through</li>
+<li>Analyzed against defined set of rules to determine if connection is allowed to flow through</li>
+<li>E.g. will filter <code>ACK</code> without <a href="../../03-scanning-networks/tcpip-basics/#three-way-handshake">TCP connection</a> establishment (with <code>SYN</code>)</li>
+</ul>
+<h5 id="zone-based-firewall">Zone-based firewall</h5>
+<ul>
+<li><img alt="Illustration showing different zones in a zone-based firewall" src="../img/zone-based-firewall.png" /></li>
+<li>Type of <a href="#stateful-firewalls">stateful</a> network and <a href="#multi-homed-firewalls">multi-homed</a> firewalls.</li>
+<li>Allows setting up rules such to filter / inspect traffic between zones.</li>
+</ul>
+<h6 id="firewall-zone">Firewall zone</h6>
+<ul>
+<li>Logical area in which the devices having same trust levels resides.</li>
+<li>An interface is assigned to a zone.</li>
+<li>By default, traffic is not allowed from one zone to another.</li>
+<li>Common zones</li>
+<li><strong>Private</strong>: inside | Most trusted network</li>
+<li><strong>Public</strong>: outside | Untrusted network</li>
+<li><strong>DMZ (demilitarized)</strong>: neutral | Sits in-between private and outside</li>
+</ul>
+<h4 id="firewalld">firewalld</h4>
+<ul>
+<li>Zone-based network level firewall on Linux</li>
+<li>Rules can be</li>
+<li><strong>Runtime</strong>: For duration of the session</li>
+<li><strong>Permanent</strong>: Persists through reboot or reload of a firewall<ul>
+<li>❗ Requires <code>firewall-cmd --reload</code> to apply the rules.</li>
+</ul>
+</li>
+<li>Commands:</li>
+<li>Install: <code>yum install firewalld</code></li>
+<li>Start: <code>systemctl start firewalld</code></li>
+<li>Add rule (allow access): <code>firewall-cmd --permanent --zone=public --add-port=80/tcp</code></li>
+<li>Remove rule (deny access): <code>firewall-cmd --permanent --zone=public --remove-port=80/tcp</code></li>
+<li>Reload to apply changed rules: <code>firewall-cmd --reload</code></li>
+<li>Block access from different countries through geo IP block<ol>
+<li>Download ip blocks at e.g. <a href="https://www.ipdeny.com/ipblocks/">ipdeny.com</a></li>
+<li>Download: <code>wget https://www.ipdeny.com/ipblocks/data/countries/all-zones.tar.gz</code></li>
+<li>Extract: <code>tar -vxzf all-zones.tar.gz</code></li>
+<li>Create a list called e.g. <code>blacklist</code>: <code>firewall-cmd --permanent --new-ipset=blacklist --type=hash:net --option-family=inet</code></li>
+<li><code>--type</code>: <code>hash</code> is the storage type, <code>:net</code> is to block whole subnet</li>
+<li><code>--inet</code>: ipv4</li>
+<li>Add entries to list: <code>firewall-cmd --permanent --ipset=blacklist --add-entries-from-file=us.zone</code></li>
+<li>Apply entries in list</li>
+<li>Deny access: <code>firewall-cmd --permanent --zone=drop --add-source=ipset:blacklist</code></li>
+<li><code>firewall-cmd --reload</code></li>
+</ol>
+</li>
+<li>In <code>/etc/firewall/firewall.d</code> file you can e.g. enable logging for denied traffic.</li>
+<li>💡 Careful for what you log as they can grow rapidly as servers, web applications etc. are also logging.</li>
+</ul>
+<h3 id="circuit-level-gateway-firewalls">Circuit level gateway firewalls</h3>
+<ul>
+<li>Also known as <strong>circuit-level gateway</strong></li>
+<li>📝 Monitors TCP handshakes to determine if the requested connection is legitimate.</li>
+<li>📝 Implemented on</li>
+<li>OSI model: Session Layer (5)</li>
+<li>TCP/IP stack: Between application (4) and transport layer (3)</li>
+<li>It acts as a proxy server using address translation</li>
+<li>Maps all of internal IP addresses to one "safe" IP address for incoming packet</li>
+<li>Address is associated with the firewall from which all outgoing packets originate</li>
+<li>Provides security as untrusted network is only aware of single IP address</li>
+</ul>
+<h3 id="application-level-firewalls">Application level firewalls</h3>
+<ul>
+<li>Also known as <strong>proxy firewall</strong>, <strong>application firewall</strong> or <strong>gateway firewall</strong>.</li>
+<li>Installed on a proxy server to act as a barrier between internal and external networks.</li>
+<li>Implemented on the application layer.</li>
+<li>📝 Designed to filter traffic only for the protocols for which they are configured.</li>
+<li>Exposes single address instead of exposing internal network.</li>
+<li>Clients first establish a connection with a proxy firewall, and then a new network connection is initiated on the client's behalf.</li>
+<li>Utilizes NAT (Network address translation) to make the translations</li>
+<li>Can function in two modes:</li>
+<li><strong>Active application-level firewalls</strong>: Actively reject or deny requests</li>
+<li><strong>Passive application-level firewalls</strong>: More like IDS, does not filter</li>
+</ul>
+<h4 id="web-application-firewall-waf">Web Application Firewall (WAF)</h4>
+<ul>
+<li>Type of an application firewall that filters, monitors, and blocks HTTP traffic to and from a web service.</li>
+<li>📝 It can prevent attacks exploiting a web application's known vulnerabilities</li>
+<li>E.g. <a href="../../13-web-applications/owasp-top-10-threats/#injection">injection</a>, <a href="../../13-web-applications/owasp-top-10-threats/#cross-site-scripting-xss">cross-site scripting (XSS)</a>, file inclusion, and improper system configuration.</li>
+</ul>
+<h4 id="application-level-vs-network-level-firewalls">Application level vs Network level Firewalls</h4>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th> Application level</th>
+<th> Network level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> <strong>Configuration</strong></td>
+<td>Advanced</td>
+<td>Narrow (IPS and ports)</td>
+</tr>
+<tr>
+<td> <strong>Coverage</strong></td>
+<td> Small (protocol-specific)</td>
+<td>Wider (any IP-based)</td>
+</tr>
+<tr>
+<td><strong>Speed</strong></td>
+<td> Slower</td>
+<td> Faster</td>
+</tr>
+<tr>
+<td> <strong>Application threats</strong></td>
+<td> Greater security</td>
+<td> Blind</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>💡 Use multiple layers of defense in depth</li>
+<li>Level 3 firewall at the edge that only allows inbound traffic on the specific ports used by apps</li>
+<li>Route those ports to an L7 firewall for deeper inspection.</li>
+</ul>
+<h3 id="stateful-multilayer-inspection-firewall">Stateful multilayer inspection firewall</h3>
+<ul>
+<li>Combination of different firewalls:</li>
+<li><a href="#packet-filtering-firewalls">packet filtering</a> <em>(network layer)</em>: to filter packets</li>
+<li><a href="#circuit-level-gateway-firewalls">circuit level</a> <em>(session layer)</em>: to verify legitimate sessions</li>
+<li><a href="#application-level-firewalls">application level</a> <em>(application layer)</em>: to evaluate packets</li>
+<li>A type of <strong>hybrid firewall</strong> as it's a mix of some of the firewalls already</li>
+</ul>
+<h3 id="network-address-translation-nat">Network Address Translation (NAT)</h3>
+<ul>
+<li>Implemented by many firewalls just like routers</li>
+<li>Enables LAN to use different sets of IP addresses for external and internal traffic.</li>
+<li>NAT modifies the packet's IP header and translates one address space into another</li>
+<li>NAT allows to hide the layout of the internal network.</li>
+<li><strong>Basic NAT</strong></li>
+<li>One-to-one mapping where each internal IP is mapped to a unique public IP.</li>
+<li>Too expensive to implement</li>
+<li><strong>Port address translation (PAT)</strong></li>
+<li>Also known as <strong><em>network address and port translation (NAPT)</em></strong>, <strong><em>IP masquerading</em></strong>, <strong><em>NAT overload</em></strong> and <strong><em>many-to-one NAT</em></strong>.</li>
+<li>Allows multiple internal IP addresses to be mapped to single public IP</li>
+<li>Uses different port (and other items) for each web conversation.</li>
+<li>Typically used as is the cheaper option.</li>
+<li>Dynamic vs Static NAT</li>
+<li><strong>Static NAT</strong>: one-to-one internal to public static IP address mapping</li>
+<li><strong>Dynamic NAT</strong>: uses a group of available public IP addresses.</li>
+</ul>
+<h3 id="virtual-private-network-vpn">Virtual Private Network (VPN)</h3>
+<ul>
+<li>A network which enables a secure connection to a private network through the Internet.</li>
+<li>Information is protected by encryption and integrity checks.</li>
+<li>Can use e.g. <a href="../../15-cryptography/tunneling-protocols/#ipsec">IPSec</a> or <a href="../../15-cryptography/tunneling-protocols/#openvpn">OpenVPN</a> tunnelling protocol.</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../evading-ids/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Evading IDS" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Evading IDS
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../evading-firewalls/" class="md-footer__link md-footer__link--next" aria-label="Next: Evading firewalls" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Evading firewalls
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+    
+  </body>
+</html>
