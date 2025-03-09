@@ -19,9 +19,12 @@ jobs:
     steps:
       - name: Install emoji fonts & renderer
         run: |
-            sudo apt-add-repository ppa:eosrei/fonts
             sudo apt-get update
-            sudo apt-get install fonts-twemoji-svginot pdftk
+            sudo apt-get install pdftk wget unzip
+            wget https://github.com/eosrei/twemoji-color-font/releases/download/v14.0.2/TwemojiMozilla.ttf
+            mkdir -p ~/.local/share/fonts
+            mv TwemojiMozilla.ttf ~/.local/share/fonts/
+            fc-cache -f -v
 
       - name: Install node
         uses: actions/setup-node@v2
