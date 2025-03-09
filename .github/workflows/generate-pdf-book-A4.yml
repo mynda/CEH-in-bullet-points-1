@@ -20,11 +20,8 @@ jobs:
       - name: Install emoji fonts & renderer
         run: |
             sudo apt-get update
-            sudo apt-get install pdftk wget unzip
-            wget https://github.com/eosrei/twemoji-color-font/releases/download/v14.0.2/TwemojiMozilla.ttf
-            mkdir -p ~/.local/share/fonts
-            mv TwemojiMozilla.ttf ~/.local/share/fonts/
-            fc-cache -f -v
+            sudo apt-get install fonts-noto-color-emoji pdftk
+
 
       - name: Install node
         uses: actions/setup-node@v2
