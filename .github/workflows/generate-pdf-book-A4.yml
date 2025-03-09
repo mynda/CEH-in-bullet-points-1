@@ -60,7 +60,7 @@ jobs:
         run: echo "CURR_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: CEH-in-bulletpoints-${{env.CURR_DATE}}
           path: ceh-in-bullet-points.pdf        
